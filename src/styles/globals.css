@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -8,6 +11,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-color: #CDCDCD;
+    --background-secondary-color: '#4BBB8B';
+    --background-primary-color: '#126969';
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -87,12 +93,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background-color)
 }
 
 a {
