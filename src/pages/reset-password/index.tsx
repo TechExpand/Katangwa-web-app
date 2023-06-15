@@ -4,22 +4,22 @@ import AuthLayout from "@/components/layouts/AuthLayout";
 import AuthNavbar from "@/components/navbar/AuthNavbar";
 import { NextPage } from "next";
 
-const Login: NextPage = () => {
+const ResetPassword: NextPage = () => {
   return (
     <>
       <AuthLayout
-        title="Log in"
-        subtext="Register an account now to get started on Katangwa"
+        title="PASSWORD RESET"
+        subtext="It's time to create a new password. Choose a strong password that combines letters, numbers, and special characters for enhanced security"
       >
         <p className="font-nunito font-semibold my-3">
-          Enter Username and Enter Phone Number
+          Please Enter New Password
         </p>
-        <CustomInput placeholder="Email Address" />
         <CustomInput placeholder="Password" />
-        <CustomButton />
+        <CustomInput placeholder="Confirm Password" />
+        <CustomButton text="Reset Password" />
       </AuthLayout>
     </>
   );
 };
 
-export default Login;
+export default ResetPassword;
