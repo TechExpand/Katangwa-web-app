@@ -5,7 +5,7 @@ import CustomInput from "@/components/input/CustomInput";
 import { Button, Input, Typography } from "@mui/material";
 import Link from "next/link";
 
-function ResetPassword() {
+function Reset() {
   return (
     <>
       <AuthContainer
@@ -41,6 +41,6 @@ function ResetPassword() {
   );
 }
 
-ResetPassword.getLayout = getAuthLayout;
+Reset.getLayout = getAuthLayout;
 
-export default ResetPassword;
+export default Reset;
