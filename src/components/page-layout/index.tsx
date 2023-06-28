@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
 import { Box, NoSsr } from "@mui/material";
-// import Header from "components/header";
-// import Footer from "components/footer";
 
 type Props = {
   overlayHeader?: boolean;
