@@ -33,7 +33,7 @@ function SignUp() {
             placeholder="Password"
           />
           <Button
-            className="w-full h-full p-4 capitalize"
+            className="w-full h-14 p-4 capitalize"
             color="primary"
             disableElevation
             variant="contained"
@@ -58,7 +58,7 @@ function SignUp() {
 
           <Button
             variant="outlined"
-            className="w-full h-full space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
+            className="w-full h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
           >
             <GoogleIcon />
             <p>Sign in with Google</p>

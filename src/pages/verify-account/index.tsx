@@ -34,7 +34,7 @@ function VerifyAccount() {
           />
 
           <Button
-            className="w-full h-full p-4 capitalize"
+            className="w-full h-14 p-4 capitalize"
             color="primary"
             disableElevation
             variant="contained"

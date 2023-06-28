@@ -49,7 +49,7 @@ const PageNavbar: FC = () => {
         </div>
         <div className="login-btn w-[111px] h-[44px]">
           <Button
-            className="w-full h-full p-4 bg-gradient-to-r rounded-lg font-bold capitalize from-[#126969] to-[#4BBB8B]"
+            className="w-full h-14 p-4 bg-gradient-to-r rounded-lg font-bold capitalize from-[#126969] to-[#4BBB8B]"
             disableElevation
             color="primary"
             variant="contained"

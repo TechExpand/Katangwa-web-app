@@ -67,7 +67,7 @@ function Onboarding() {
           </div>
         </div>
         <Button
-          className="w-auto h-full p-4 capitalize"
+          className="w-auto h-14 p-4 capitalize"
           color="secondary"
           disableElevation
           variant="outlined"

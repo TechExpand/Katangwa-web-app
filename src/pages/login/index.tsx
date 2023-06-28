@@ -34,7 +34,7 @@ function Login() {
           />
 
           <Button
-            className="w-full h-full p-4 capitalize"
+            className="w-full h-14 p-4 capitalize"
             onClick={handleLogin}
             variant="contained"
           >
@@ -52,7 +52,7 @@ function Login() {
             variant="outlined"
             disableElevation
             onClick={handleLogin}
-            className="w-full h-full space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
+            className="w-full h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
           >
             <GoogleIcon />
             <p>Sign in with Google</p>
@@ -60,7 +60,7 @@ function Login() {
         </div>
       </AuthContainer>
       <div className="w-fit px-20 mr-0 ml-auto">
-        <p className="text-2xl text-[#737373] font-semibold">
+        <p className="text-lg md:text-2xl text-[#737373] font-semibold">
           Don’t have an account?{" "}
           <Link href="/signup" className="text-link">
             Sign up
