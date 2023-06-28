@@ -17,13 +17,21 @@ function SignUp() {
         title="Create a Katangwa account"
         subtext="Register an account now to get started on Katangwa"
       >
-        <div className="shadow-lg rounded-lg w-[506px] px-8 py-12 space-y-7">
+        <div className="shadow-lg rounded-lg w-[516px] px-8 py-12 space-y-7">
           <p className="font-nunito font-semibold my-3">
             Enter Your Details below
           </p>
           <CustomInput icon={<NigeriaFlag />} placeholder="Full Name" />
-          <CustomInput icon={<InputEmail />} placeholder="Email Address" />
-          <CustomInput icon={<Password />} placeholder="Password" />
+          <CustomInput
+            icon={<InputEmail />}
+            type="email"
+            placeholder="Email Address"
+          />
+          <CustomInput
+            icon={<Password />}
+            type="password"
+            placeholder="Password"
+          />
           <Button
             className="w-full h-full p-4 capitalize"
             color="primary"

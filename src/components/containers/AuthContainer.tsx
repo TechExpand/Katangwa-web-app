@@ -18,7 +18,7 @@ const AuthContainer: FC<AuthContainerProps> = ({
   return (
     <>
       <div className="mx-auto text-center auth-container px-20 flex flex-col items-center py-8 w-[729px]">
-        <div className="pb-5 space-y-4 w-full">
+        <div className="pb-5 w-[506px] mx-auto space-y-4">
           <h1 className="leading-10 font-semibold text-3xl">{title}</h1>
           <p className="font-nunito text-[#353945]">{subtext}</p>
         </div>

@@ -22,9 +22,14 @@ function VerifyAccount() {
           <p className="font-nunito text-[#353945] font-bold my-3">
             Please Enter More Details
           </p>
-          <CustomInput icon={<NigeriaFlag />} placeholder="+234" />
+          <CustomInput
+            icon={<NigeriaFlag />}
+            type="number"
+            placeholder="+234"
+          />
           <CustomInput
             icon={<Calendar />}
+            type="date"
             placeholder="Date of Birth (DD/MM/YY)"
           />
 

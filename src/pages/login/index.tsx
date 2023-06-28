@@ -10,7 +10,7 @@ function Login() {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.push("/dashboard");
+    router.push("/onboarding");
   };
   return (
     <>
@@ -22,8 +22,16 @@ function Login() {
           <p className="font-nunito text-[#353945] font-bold my-3">
             Enter Username and Enter Phone Number
           </p>
-          <CustomInput icon={<InputEmail />} placeholder="Email Address" />
-          <CustomInput icon={<Password />} placeholder="Password" />
+          <CustomInput
+            icon={<InputEmail />}
+            type="email"
+            placeholder="Email Address"
+          />
+          <CustomInput
+            icon={<Password />}
+            type="password"
+            placeholder="Password"
+          />
 
           <Button
             className="w-full h-full p-4 capitalize"

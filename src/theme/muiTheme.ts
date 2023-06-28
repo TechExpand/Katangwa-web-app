@@ -32,11 +32,32 @@ export default createTheme({
               color: '#000',
               fontSize: "1rem",
               
-            }),
+          }),
+                ...(ownerState.variant === 'outlined' && ownerState.color === 'secondary' && {
+                    backgroundColor: "transparent",
+                    borderColor: "#126969 !important",
+                  color: '#4BBB8B',
+              borderWidth: '2px',
+              fontSize: "1rem",
+              '&:hover': {
+                borderColor: "#126969 !important",
+                borderWidth: '2px',
+                  },
+          }),
+              
               fontWeight: '600',
                
         }),
       },
-    },
+      },
+     
+      MuiInputBase: {
+          styleOverrides: {
+              input: {
+                  padding: '.875rem !important',
+              }
+          }
+      }
+  
   },
 })
