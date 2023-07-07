@@ -24,10 +24,18 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     },
   });
   const getLayout = Component.getLayout || ((page: any) => page);
-  return getLayout(
+  // return getLayout(
+  //   <QueryClientProvider client={queryClient}>
+  //     <ThemeProvider theme={muiTheme}>
+  //       <Component {...pageProps} />
+  //     </ThemeProvider>
+  //     <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
+  //   </QueryClientProvider>
+  // );
+  return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={muiTheme}>
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
     </QueryClientProvider>
