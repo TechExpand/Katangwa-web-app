@@ -43,6 +43,7 @@ const Footer: FC = () => {
               <div className="w-24 h-[44px]">
                 <Button
                   className="w-full h-12 p-4 rounded-lg font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
+                  sx={{ textTransform: "capitalize" }}
                   color="primary"
                   disableElevation
                   variant="contained"
