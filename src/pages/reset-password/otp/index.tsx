@@ -12,7 +12,7 @@ function Otp() {
         title="OTP VERIFICATION"
         subtext="Complete OTP verification to proceed, its important for account verification"
       >
-        <div className="shadow-lg rounded-lg w-[516px] px-8 py-12 space-y-7">
+        <div className="shadow-mlg rounded-lg w-[516px] px-8 py-12 space-y-7">
           <p className="font-nunito text-[#353945] font-bold my-3">
             Please Enter OTP code sent to your registered email address
           </p>

@@ -18,7 +18,7 @@ function Login() {
         title="Log in"
         subtext="Register an account now to get started on Katangwa"
       >
-        <div className="shadow-lg rounded-lg max-w-[506px] w-full px-8 py-12 space-y-7">
+        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-8 py-12 space-y-7">
           <p className="font-nunito text-[#353945] font-bold my-3">
             Enter Username and Enter Phone Number
           </p>
@@ -57,16 +57,16 @@ function Login() {
             <GoogleIcon />
             <p>Sign in with Google</p>
           </Button>
+          <div className="w-fit px-20 mx-auto">
+            <p className="text-lg md:text-xl text-[#737373] font-semibold">
+              Don’t have an account?{" "}
+              <Link href="/signup" className="text-link">
+                Sign up
+              </Link>
+            </p>
+          </div>
         </div>
       </AuthContainer>
-      <div className="w-fit px-20 mr-0 ml-auto">
-        <p className="text-lg md:text-2xl text-[#737373] font-semibold">
-          Don’t have an account?{" "}
-          <Link href="/signup" className="text-link">
-            Sign up
-          </Link>
-        </p>
-      </div>
     </>
   );
 }

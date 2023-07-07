@@ -18,7 +18,7 @@ function VerifyAccount() {
         title="Phone Number and Date of Birth "
         subtext="Register an account now to get started on Katangwa"
       >
-        <div className="shadow-lg rounded-lg w-full max-w-[506px] px-8 py-12 space-y-7">
+        <div className="shadow-mlg rounded-lg w-full max-w-[506px] px-8 py-12 space-y-7">
           <p className="font-nunito text-[#353945] font-bold my-3">
             Please Enter More Details
           </p>
@@ -53,19 +53,6 @@ function VerifyAccount() {
           </Typography>
         </div>
       </AuthContainer>
-      <div className="space-y-5">
-        <div className="text-center">
-          <p>Why do we need this details?</p>
-        </div>
-        <div className="w-fit px-20 mr-0 ml-auto">
-          <p className="text-2xl text-[#737373] font-semibold">
-            Already have an account?{" "}
-            <Link href="/signup" className="text-link">
-              Log in
-            </Link>
-          </p>
-        </div>
-      </div>
     </>
   );
 }

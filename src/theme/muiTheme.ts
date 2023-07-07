@@ -7,7 +7,7 @@ export default createTheme({
             paper: "#FFFFFF"
         },
         primary: {
-            main: "#126969",
+            main: "#70A300",
             
         }
     },
@@ -21,9 +21,12 @@ export default createTheme({
             
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'primary' && {
-              background: "linear-gradient(42.75deg, #126969 -4.6%, #4BBB8B 107.63%) !important",
+              backgroundColor: "#70A300 !important",
               color: '#fff',
-              fontSize: "1rem",
+                    fontSize: "1rem",
+              '&:hover': {
+                backgroundColor: "#70A300 !important",
+                  },
               
               }),
                 ...(ownerState.variant === 'outlined' && {

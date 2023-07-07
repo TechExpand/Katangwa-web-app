@@ -13,7 +13,7 @@ const CustomSearch: FC<InputProps> = ({ placeholder }) => {
         placeholder={placeholder}
         className="auth-input p-4 leading-7 text-lg font-normal w-full outline-none"
       />
-      <div className="icon w-20 flex justify-center items-center bg-[#4BBB8B]">
+      <div className="icon w-20 flex justify-center items-center  bg-[#70A300] hover:bg-[#70A300] hover:cursor-pointer hover:opacity-75">
         <SearchIcon />
       </div>
     </div>

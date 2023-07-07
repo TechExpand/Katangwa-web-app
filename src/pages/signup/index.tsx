@@ -9,15 +9,15 @@ import { useRouter } from "next/router";
 function SignUp() {
   const router = useRouter();
   const handleSignup = () => {
-    router.push("/login");
+    router.push("/verify-account");
   };
   return (
     <>
       <AuthContainer
         title="Create a Katangwa account"
-        subtext="Register an account now to get started on Katangwa"
+        subtext="Register now to get started on Katangwa"
       >
-        <div className="shadow-lg rounded-lg w-[516px] px-8 py-12 space-y-7">
+        <div className="shadow-mlg rounded-lg w-[516px] px-8 py-12 space-y-7">
           <p className="font-nunito font-semibold my-3">
             Enter Your Details below
           </p>
@@ -63,6 +63,14 @@ function SignUp() {
             <GoogleIcon />
             <p>Sign in with Google</p>
           </Button>
+          <div className="w-fit mt-4 mx-auto">
+            <p className="text-lg md:text-xl text-[#737373] font-semibold">
+              Have an account already?{" "}
+              <Link href="/login" className="text-link">
+                Log in
+              </Link>
+            </p>
+          </div>
         </div>
       </AuthContainer>
     </>

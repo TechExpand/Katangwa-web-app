@@ -1,13 +1,6 @@
 import { CategoryIcon } from "@/assets/svg";
 import { getLayout as getPageLayout } from "@/components/layouts/CorePageLayout";
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  TextField,
-} from "@mui/material";
+import { Button, FormControl, FormLabel, Select } from "@mui/material";
 
 function Dashboard() {
   return (

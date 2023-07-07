@@ -20,7 +20,7 @@ const PageNavbar: FC = () => {
             alt="app-logo"
             width={165}
             height={38}
-            src="/images/Katangwa.png"
+            src="/images/logoKat.png"
           />
         </div>
 
@@ -30,7 +30,7 @@ const PageNavbar: FC = () => {
               <p className="text-lg font-medium">Category</p>
               <ArrowDown />
             </div>
-            <div className="search w-auto max-w-xl flex-grow h-[55px]">
+            <div className="search w-auto max-w-xl flex-grow h-14">
               <CustomSearch placeholder="Search for items" />
             </div>
           </div>
@@ -47,9 +47,9 @@ const PageNavbar: FC = () => {
             </div>
           </div>
         </div>
-        <div className="login-btn w-[111px] h-[44px]">
+        <div className="login-btn min-w-[111px] ">
           <Button
-            className="w-full h-14 p-4 bg-gradient-to-r rounded-lg font-bold capitalize from-[#126969] to-[#4BBB8B]"
+            className="w-full h-12 p-4 rounded-lg font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
             disableElevation
             color="primary"
             variant="contained"
