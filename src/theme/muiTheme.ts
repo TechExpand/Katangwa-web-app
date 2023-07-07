@@ -20,7 +20,9 @@ export default createTheme({
             root: ({ ownerState }) => ({
             
           ...(ownerState.variant === 'contained' &&
-            ownerState.color === 'primary' && {
+                    ownerState.color === 'primary' && {
+                    textTransform: "capitalize",
+                        borderRadius: "8px",
               backgroundColor: "#70A300 !important",
               color: '#fff',
                     fontSize: "1rem",
