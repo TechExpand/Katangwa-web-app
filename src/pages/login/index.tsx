@@ -57,10 +57,10 @@ function Login() {
             variant="outlined"
             disableElevation
             onClick={handleLogin}
-            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
+            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2] font-bold capitalize"
           >
             <GoogleIcon />
-            <p>Sign in with Google</p>
+            <p className="capitalize">Signin with Google</p>
           </Button>
           <div className="w-fit mx-auto">
             <p className="md:text-lg text-[#737373] font-semibold">
