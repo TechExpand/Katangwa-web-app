@@ -12,7 +12,7 @@ function Onboarding() {
     router.push("/dashboard");
   };
   return (
-    <div className="shadow-mlg mx-auto rounded-lg my-16 w-[48rem] px-8 py-12 space-y-7">
+    <div className="shadow-mlg mx-auto rounded-lg my-16 bg-white w-[48rem] px-8 py-12 space-y-7">
       <div className="image-container w-fit mx-auto">
         <Image
           src="/images/logoKat.png"

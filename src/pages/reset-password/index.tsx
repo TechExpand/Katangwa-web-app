@@ -12,13 +12,13 @@ function ResetPassword() {
         title="PASSWORD RESET"
         subtext="No worries, we've got your back. Resetting your password is easy. "
       >
-        <div className="shadow-mlg rounded-lg w-[516px] px-8 py-12 space-y-7">
-          <p className="font-nunito text-[#353945] font-bold my-3">
+        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12 space-y-7">
+          <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
             Please Enter New Password
           </p>
           <CustomInput icon={<InputEmail />} placeholder="Email Address" />
           <Button
-            className="w-full h-14 p-4 capitalize"
+            className="w-full md:h-14 h-12 p-4 capitalize"
             color="primary"
             disableElevation
             variant="contained"

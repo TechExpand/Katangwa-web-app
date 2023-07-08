@@ -16,7 +16,7 @@ const CustomInput: FC<InputProps> = ({ placeholder, icon, type }) => {
         type={type || "text"}
         required={true}
         placeholder={placeholder}
-        className="auth-input p-4 leading-7 text-lg font-normal w-full outline-none"
+        className="auth-input py-2 md:p-4 leading-7 text-lg font-normal w-full outline-none"
       />
     </div>
   );

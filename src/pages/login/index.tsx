@@ -14,12 +14,9 @@ function Login() {
   };
   return (
     <>
-      <AuthContainer
-        title="Log in"
-        subtext="Register an account now to get started on Katangwa"
-      >
-        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-8 py-12 space-y-7">
-          <p className="font-nunito text-[#353945] font-bold my-3">
+      <AuthContainer title="Log in" subtext="">
+        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12 space-y-7">
+          <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
             Enter Username and Enter Phone Number
           </p>
           <CustomInput
@@ -27,14 +24,22 @@ function Login() {
             type="email"
             placeholder="Email Address"
           />
-          <CustomInput
-            icon={<Password />}
-            type="password"
-            placeholder="Password"
-          />
+          <div>
+            {" "}
+            <CustomInput
+              icon={<Password />}
+              type="password"
+              placeholder="Password"
+            />
+            <div className="w-full justify-end my-2 p-0 flex">
+              <Link href={"/reset-password"} className="text-link text-sm">
+                Forgot Password?
+              </Link>
+            </div>
+          </div>
 
           <Button
-            className="w-full h-14 p-4 capitalize"
+            className="w-full md:h-14 h-12 p-4 capitalize"
             onClick={handleLogin}
             variant="contained"
           >
@@ -52,13 +57,13 @@ function Login() {
             variant="outlined"
             disableElevation
             onClick={handleLogin}
-            className="w-full h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
+            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
           >
             <GoogleIcon />
             <p>Sign in with Google</p>
           </Button>
-          <div className="w-fit px-20 mx-auto">
-            <p className="text-lg md:text-xl text-[#737373] font-semibold">
+          <div className="w-fit mx-auto">
+            <p className="md:text-lg text-[#737373] font-semibold">
               Don’t have an account?{" "}
               <Link href="/signup" className="text-link">
                 Sign up

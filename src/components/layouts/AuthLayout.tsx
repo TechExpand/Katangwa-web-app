@@ -15,16 +15,19 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
         style={{
           backgroundImage: `url(/images/BG.png)`,
           width: "100vw",
-          height: "100vh",
+          height: "90vh",
         }}
       >
-        <div className="image-container my-6 w-fit mx-auto">
+        <div className="image-container relative w-[167px] my-6 md:w-fit ml-16 mr-auto md:mx-auto">
           <Image
             src="/images/logoKat.png"
             alt="app-logo"
             width={237}
             height={52}
           />
+          <div className="italic font-bold text-xs absolute bottom-0 -right-28">
+            Exchange with connections
+          </div>
         </div>
         {children}
       </div>

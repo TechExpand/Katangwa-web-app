@@ -127,9 +127,7 @@ h2 {
   background-color: #EBEBEB;
 }
 .text-link {
-  background: -webkit-linear-gradient(#126969, #4BBB8B);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+color: #70A300;
 }
 @media (prefers-color-scheme: dark) {
   html {
