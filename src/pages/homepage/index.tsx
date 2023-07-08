@@ -18,7 +18,7 @@ function Dashboard() {
   };
   return (
     <div className="max-w-screen-2xl mx-auto flex">
-      <div className="sidebar w-[20.625rem] min-h-screen bg-[#F9F9F9] py-16 px-8 space-y-8">
+      <div className="sidebar hidden md:block w-[32%] max-w-[22.625rem] min-h-full bg-[#F9F9F9] py-16 pl-12 pr-8 space-y-8">
         <div className="flex justify-between">
           <h4>Category</h4>
           <CategoryIcon />
@@ -100,8 +100,8 @@ function Dashboard() {
         </div>
       </div>
 
-      <main className=" bg-white w-full py-3 px-10">
-        <div className="sort-section flex space-x-6 items-center bg-[#F9F9F9] px-10 rounded-md py-3">
+      <main className=" bg-white w-full md:flex-1 py-3 px-4 md:px-10">
+        <div className="sort-section flex space-x-6 items-center bg-[#F9F9F9] px-4 md:px-10 rounded-md py-3">
           <h3 className="font-medium">Sort by:</h3>
 
           <Select
@@ -124,7 +124,7 @@ function Dashboard() {
           </Select>
         </div>
 
-        <div className="content gap-8 grid grid-cols-fluid mt-6">
+        <div className="content gap-3 lg:gap-y-8 place-items-center grid grid-cols-2 lg:grid-cols-fluid mt-6">
           {Array.from([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]).map(
             (item, index) => (
               <ProductCard key={index} />

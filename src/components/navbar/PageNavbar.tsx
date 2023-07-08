@@ -17,7 +17,7 @@ const PageNavbar: FC = () => {
     <>
       <div className="w-full bg-white shadow-md z-10 fixed top-0 left-0 right-0">
         <div className="bg-[#09253B] text-white w-full h-16 flex items-center">
-          <div className="max-w-screen-2xl w-full mx-auto px-16 flex justify-between">
+          <div className="max-w-screen-2xl w-full mx-auto px-12 flex justify-between">
             <div className="left flex space-x-5 text-bold">
               <p className="text-white font-semibold">Electronics</p>
               <p className="text-white font-semibold">Computer</p>
@@ -34,7 +34,7 @@ const PageNavbar: FC = () => {
           </div>
         </div>
         <div className="w-full bg-white shadow-md z-10 top-0 left-0 right-0">
-          <div className="flex space-x-12 items-center w-full h-max overflow-hidden py-7 px-16 max-w-screen-2xl mx-auto">
+          <div className="flex space-x-12 items-center w-full h-max overflow-hidden py-7 px-12 max-w-screen-2xl mx-auto">
             <div className="image-container">
               <Image
                 alt="app-logo"

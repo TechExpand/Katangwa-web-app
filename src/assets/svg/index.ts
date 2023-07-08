@@ -11,7 +11,9 @@ import NotificationIcon from './Notification.svg';
 import ArrowDown from './Arrow_Down.svg';
 import SendIcon from './Send.svg';
 import BuyIcon from './Buy.svg';
+import Location from './Location.svg'
 import CategoryIcon from './Category.svg';
+import Star from './Star.svg';
 export {
     GoogleIcon,
     InputEmail,
@@ -27,4 +29,6 @@ export {
     SendIcon,
     BuyIcon,
     CategoryIcon,
+    Location,
+    Star
 }
