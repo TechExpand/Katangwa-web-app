@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 function Otp() {
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
   return (
     <>
       <AuthContainer
@@ -27,7 +27,7 @@ function Otp() {
           </div>
           <Button
             className="w-full md:h-14 h-12 p-4 capitalize bg-[#B1B5C3]"
-            color={disabled ? "secondary" : "primary"}
+            color={disabled ? "info" : "primary"}
             disableElevation
             variant="contained"
             onClick={() => {}}

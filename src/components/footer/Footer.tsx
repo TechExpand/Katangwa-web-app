@@ -34,7 +34,7 @@ const Footer: FC = () => {
           </div>
           <div className="flex flex-col md:w-[40%] space-y-4 mt-6 md:m-0">
             <p className="text-white">Join our Newsletter</p>
-            <div className="newsletter-input w-full max-w-[35.6rem] flex bg-white p-3 rounded-lg overflow-hidden space-x-3 text-black">
+            <div className="newsletter-input w-full max-w-[35.6rem] h-16 flex bg-white p-3 rounded-lg overflow-hidden space-x-3 text-black">
               <input
                 type="text"
                 placeholder="Email address"
@@ -42,7 +42,7 @@ const Footer: FC = () => {
               />
               <div className="w-24 h-[44px]">
                 <Button
-                  className="w-full h-12 p-4 rounded-lg font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
+                  className="w-full h-11 p-4 rounded-lg font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
                   sx={{ textTransform: "capitalize" }}
                   color="primary"
                   disableElevation

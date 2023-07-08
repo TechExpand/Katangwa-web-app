@@ -17,8 +17,8 @@ const PageNavbar: FC = () => {
     <>
       <div className="w-full bg-white shadow-md z-10 fixed top-0 left-0 right-0">
         <div className="bg-[#09253B] text-white w-full h-16 flex items-center">
-          <div className="max-w-screen-2xl w-full mx-auto px-12 flex justify-between">
-            <div className="left flex space-x-5 text-bold">
+          <div className="max-w-screen-2xl w-full mx-auto px-6 md:px-12 flex justify-between">
+            <div className="left hidden md:flex space-x-5 text-bold">
               <p className="text-white font-semibold">Electronics</p>
               <p className="text-white font-semibold">Computer</p>
               <p className="text-white font-semibold">Media</p>
@@ -27,14 +27,14 @@ const PageNavbar: FC = () => {
               <p className="text-white font-semibold">Free items</p>
             </div>
             <div className="right">
-              <Link href="#" className="font-semibold">
+              <Link href="#" className="text-sm md:text-base font-semibold">
                 View Request
               </Link>
             </div>
           </div>
         </div>
         <div className="w-full bg-white shadow-md z-10 top-0 left-0 right-0">
-          <div className="flex space-x-12 items-center w-full h-max overflow-hidden py-7 px-12 max-w-screen-2xl mx-auto">
+          <div className="flex space-x-12 items-center w-full h-max overflow-hidden py-4 md:py-7 px-6 md:px-12 max-w-screen-2xl mx-auto">
             <div className="image-container">
               <Image
                 alt="app-logo"
@@ -44,7 +44,7 @@ const PageNavbar: FC = () => {
               />
             </div>
 
-            <div className="search-section w-auto flex-grow flex items-center space-x-8">
+            <div className="search-section w-auto flex-grow hidden md:flex items-center space-x-8">
               <div className="space-x-4 w-auto flex items-center flex-grow">
                 <div className="flex items-center space-x-2">
                   <p className="text-lg font-medium">Category</p>
@@ -67,9 +67,9 @@ const PageNavbar: FC = () => {
                 </div>
               </div>
             </div>
-            <div className="login-btn min-w-[111px] ">
+            <div className="login-btn w-[6rem] md:min-w-[111px] ">
               <Button
-                className="w-full h-12 p-4 rounded-lg font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
+                className="w-full h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
                 sx={{ textTransform: "capitalize" }}
                 disableElevation
                 color="primary"

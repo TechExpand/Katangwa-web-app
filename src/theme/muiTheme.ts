@@ -33,9 +33,13 @@ export default createTheme({
               }),
                 ...(ownerState.variant === 'outlined' && {
                     backgroundColor: "transparent",
-                    borderColor: "#9DA5B2",
-              color: '#000',
-              fontSize: "1rem",
+                    // borderColor: "#9DA5B2",
+                    color: '#70A300',
+              border: '3px solid #70A300',
+                    fontSize: "1rem",
+              '&:hover': {
+                border: '3px solid #70A300',
+                  },
               
           }),
                 ...(ownerState.variant === 'outlined' && ownerState.color === 'secondary' && {

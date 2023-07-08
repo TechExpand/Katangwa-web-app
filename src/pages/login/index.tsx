@@ -25,7 +25,6 @@ function Login() {
             placeholder="Email Address"
           />
           <div>
-            {" "}
             <CustomInput
               icon={<Password />}
               type="password"
