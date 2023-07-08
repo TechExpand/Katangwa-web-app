@@ -1,7 +1,5 @@
 import { Button } from "@mui/material";
-import Image from "next/image";
 import React, { FC } from "react";
-import PageNavbar from "../navbar/PageNavbar";
 
 const Footer: FC = () => {
   return (

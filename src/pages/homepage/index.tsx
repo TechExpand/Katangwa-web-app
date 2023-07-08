@@ -124,7 +124,7 @@ function Dashboard() {
           </Select>
         </div>
 
-        <div className="content gap-8 grid grid-cols-fluid">
+        <div className="content gap-8 grid grid-cols-fluid mt-6">
           {Array.from([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]).map(
             (item, index) => (
               <ProductCard key={index} />
