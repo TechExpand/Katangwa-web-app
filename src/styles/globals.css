@@ -109,9 +109,11 @@ a {
 }
 
 h1,
-h2 {
+h2,
+p {
   font-family: Konstanz, sans-serif;
-  color: #253B4B;
+  /* color: #253B4B; */
+    color: #202022
 
 }
 

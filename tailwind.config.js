@@ -9,6 +9,9 @@ module.exports = {
       boxShadow: {
         mlg: "6px 6px 16px 0px #D1CDC740",
       },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(17.875rem, 1fr))",
+      },
     },
   },
   plugins: [],
