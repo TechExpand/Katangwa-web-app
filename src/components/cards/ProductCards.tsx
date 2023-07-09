@@ -36,7 +36,7 @@ const ProductCard: FC = () => {
             <Location />
             <small>Lagos Island</small>
           </p>
-          <h2 className="text-sm md:text-base">&#8358;20,000</h2>
+          <h2 className="text-sm md:text-base">`&#8358;`20,000</h2>
         </div>
       </div>
     </div>
