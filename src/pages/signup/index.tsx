@@ -35,7 +35,7 @@ function SignUp() {
           <div className="flex space-x-4 text-left">
             <input
               type="checkbox"
-              className="w-8 cursor-pointer -mt-3"
+              className="w-8 cursor-pointer -mt-3 bg-white"
               name="check"
               id="check"
             />
@@ -63,10 +63,10 @@ function SignUp() {
 
           <Button
             variant="outlined"
-            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold capitalize"
+            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold"
           >
             <GoogleIcon />
-            <p>Sign in with Google</p>
+            <p>Signin with Google</p>
           </Button>
           <div className="w-fit mx-auto">
             <p className="text-lg md:text-xl text-[#737373] font-semibold">

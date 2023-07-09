@@ -102,7 +102,7 @@ function Dashboard() {
 
       <main className=" bg-white w-full md:flex-1 py-3 px-4 md:px-10">
         <div className="sort-section flex space-x-6 items-center bg-[#F9F9F9] px-4 md:px-10 rounded-md py-3">
-          <h3 className="font-medium">Sort by:</h3>
+          <h3 className="font-medium text-black">Sort by:</h3>
 
           <Select
             value={select}

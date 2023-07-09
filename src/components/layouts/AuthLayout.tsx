@@ -11,11 +11,11 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
     <>
       <AuthNavbar />
       <div
-        className="w-full"
+        className="w-full pb-10"
         style={{
           backgroundImage: `url(/images/BG.png)`,
           width: "100vw",
-          height: "90vh",
+          height: "100%",
         }}
       >
         <div className="image-container relative w-[167px] my-6 md:w-fit ml-16 mr-auto md:mx-auto">
