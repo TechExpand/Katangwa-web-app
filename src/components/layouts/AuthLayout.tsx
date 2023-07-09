@@ -25,7 +25,7 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
             width={237}
             height={52}
           />
-          <div className="italic font-bold text-xs absolute bottom-0 -right-28">
+          <div className="italic font-bold text-xs absolute text-black -right-32 bottom-0 md:-right-28">
             Exchange with connections
           </div>
         </div>
