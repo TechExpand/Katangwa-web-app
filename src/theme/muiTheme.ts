@@ -18,10 +18,10 @@ export default createTheme({
     MuiButton: {
       styleOverrides: {
             root: ({ ownerState }) => ({
-            
+             textTransform: "capitalize",
           ...(ownerState.variant === 'contained' &&
                     ownerState.color === 'primary' && {
-                    textTransform: "capitalize",
+                   
                         borderRadius: "8px",
               backgroundColor: "#70A300 !important",
               color: '#fff',

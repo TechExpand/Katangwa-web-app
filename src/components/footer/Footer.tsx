@@ -38,7 +38,7 @@ const Footer: FC = () => {
               <input
                 type="text"
                 placeholder="Email address"
-                className="flex flex-grow leading-7 text-lg font-normal w-full outline-none"
+                className="flex flex-grow leading-7 text-lg font-normal w-full bg-white outline-none"
               />
               <div className="w-24 h-[44px]">
                 <Button
