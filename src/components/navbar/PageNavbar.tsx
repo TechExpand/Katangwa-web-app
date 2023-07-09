@@ -69,7 +69,7 @@ const PageNavbar: FC = () => {
             </div>
             <div className="login-btn w-[6rem] md:min-w-[111px] ">
               <Button
-                className="w-full h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
+                className="w-fit h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
                 sx={{ textTransform: "capitalize" }}
                 disableElevation
                 color="primary"

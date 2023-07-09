@@ -66,7 +66,7 @@ function SignUp() {
             className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2]  font-bold"
           >
             <GoogleIcon />
-            <p>Signin with Google</p>
+            <p>Signup with Google</p>
           </Button>
           <div className="w-fit mx-auto">
             <p className="text-lg md:text-xl text-[#737373] font-semibold">
