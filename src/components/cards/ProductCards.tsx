@@ -7,6 +7,7 @@ export interface InputProps {
   text?: string;
 }
 
+// &#8358;
 const ProductCard: FC = () => {
   return (
     <div className="card max-w-[17.875rem] max-h-[18.8125rem] bg-white shadow rounded-lg">
@@ -36,7 +37,7 @@ const ProductCard: FC = () => {
             <Location />
             <small>Lagos Island</small>
           </p>
-          <h2 className="text-sm md:text-base">`&#8358;`20,000</h2>
+          <h2 className="text-sm md:text-base">20,000</h2>
         </div>
       </div>
     </div>
