@@ -25,8 +25,9 @@ function SignUp() {
   }
   // @ts-ignore
   const logInUser: any = (
+    // @ts-ignore
     { fullname, email, password }: UserSignupProps // @ts-ignore
-  ) => dispatch(signup({ fullname, email, password }));
+  ) => dispatch(signup({ fullname, email, password })); // @ts-ignore
 
   const signUp = useMutation(logInUser, {
     onSuccess: ({ payload }) => {

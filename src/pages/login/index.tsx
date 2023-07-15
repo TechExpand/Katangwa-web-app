@@ -24,15 +24,16 @@ function Login() {
   }
   // @ts-ignore
   const logInUser: any = (
+    // @ts-ignore
     { email, password }: UserLoginProps // @ts-ignore
-  ) => dispatch(login({ email, password }));
+  ) => dispatch(login({ email, password })); // @ts-ignore
 
   const signin = useMutation(logInUser, {
     onSuccess: ({ payload }) => {
       const { status, data } = payload;
       formik.setSubmitting(false);
 
-      if (status && data ) {
+      if (status && data) {
         formik.resetForm();
         dispatch(setUser({ ...data }));
         router.push("/homepage");
