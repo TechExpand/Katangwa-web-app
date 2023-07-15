@@ -2,12 +2,66 @@ import { GoogleIcon, InputEmail, Password } from "@/assets/svg";
 import AuthContainer from "@/components/containers/AuthContainer";
 import CustomInput from "@/components/input/CustomInput";
 import { getLayout as getAuthLayout } from "@/components/layouts/AuthLayout";
+import { login, setUser } from "@/reduxcontainer/authSlice/authSlice";
 import { Button } from "@mui/material";
+import { useFormik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import * as Yup from "yup";
+import { useMutation } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
   const router = useRouter();
+  const dispatch = useDispatch<any>();
+
+  const user = useSelector((state: any) => state.authReducer.user);
+
+  interface UserLoginProps {
+    email: string;
+    password: string;
+  }
+  // @ts-ignore
+  const logInUser: any = (
+    { email, password }: UserLoginProps // @ts-ignore
+  ) => dispatch(login({ email, password }));
+
+  const signin = useMutation(logInUser, {
+    onSuccess: ({ payload }) => {
+      const { status, data } = payload;
+      formik.setSubmitting(false);
+
+      if (status && data ) {
+        formik.resetForm();
+        dispatch(setUser({ ...data }));
+        router.push("/homepage");
+      } else {
+        console.log("Login Failed");
+      }
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    onSubmit: ({ email, password }, { setSubmitting }) => {
+      setSubmitting(true);
+      // @ts-ignore
+      signin.mutate({ email, password });
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().label("Email address").email().required(),
+      password: Yup.string().label("Password").min(3).required(),
+    }),
+  });
+  useEffect(() => {
+    if (user) {
+      router.push("/homepage");
+    }
+  }, []);
 
   const handleLogin = () => {
     router.push("/onboarding");
@@ -15,38 +69,58 @@ function Login() {
   return (
     <>
       <AuthContainer title="Log in" subtext="">
-        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12 space-y-7">
-          <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
-            Enter Username and Enter Phone Number
-          </p>
-          <CustomInput
-            icon={<InputEmail />}
-            type="email"
-            placeholder="Email Address"
-          />
-          <div>
-            <CustomInput
-              icon={<Password />}
-              type="password"
-              placeholder="Password"
-            />
-            <div className="w-full justify-end my-2 p-0 flex">
-              <Link href={"/reset-password"} className="text-link text-sm">
-                Forgot Password?
-              </Link>
-            </div>
-          </div>
-
-          <Button
-            className="w-full md:h-14 h-12 p-4 capitalize"
-            onClick={handleLogin}
-            variant="contained"
+        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12">
+          <form
+            autoComplete="off"
+            className=" space-y-7"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              formik.handleSubmit();
+            }}
           >
-            Log in
-          </Button>
+            <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
+              Enter Username and Enter Phone Number
+            </p>
+
+            <CustomInput
+              icon={<InputEmail />}
+              type="email"
+              value={formik.values.email}
+              handleChange={formik.handleChange("email")}
+              placeholder="Email Address"
+            />
+            <div>
+              <input
+                className="hidden"
+                type="password"
+                name="fakeusernameremembered"
+              />
+              <CustomInput
+                icon={<Password />}
+                type="password"
+                value={formik.values.password}
+                handleChange={formik.handleChange("password")}
+                placeholder="Password"
+              />
+              <div className="w-full justify-end my-2 p-0 flex">
+                <Link href={"/reset-password"} className="text-link text-sm">
+                  Forgot Password?
+                </Link>
+              </div>
+            </div>
+
+            <Button
+              className="w-full md:h-14 h-12 p-4 capitalize"
+              type="submit"
+              disabled={formik.isSubmitting}
+              variant="contained"
+            >
+              {formik.isSubmitting ? "Loading..." : "Login"}
+            </Button>
+          </form>
         </div>
 
-        <div className="w-full space-y-5 px-10 mt-8 text-center mx-auto">
+        <div className="w-full space-y-5 px-6 md:px-10 mt-8 text-center mx-auto">
           <div className="separator flex space-x-3 px-2 items-center">
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
             <p>OR</p>
@@ -55,11 +129,14 @@ function Login() {
           <Button
             variant="outlined"
             disableElevation
+            color="inherit"
             onClick={handleLogin}
             className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2] font-bold capitalize"
           >
             <GoogleIcon />
-            <p className="capitalize">Signin with Google</p>
+            <p className="capitalize text-sm md:text-base">
+              Signin with Google
+            </p>
           </Button>
           <div className="w-fit mx-auto">
             <p className="md:text-lg text-[#737373] font-semibold">

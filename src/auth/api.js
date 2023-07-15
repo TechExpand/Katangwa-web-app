@@ -1,24 +1,85 @@
 import axios from "axios";
-import { Storage } from "../helpers/utils/storage";
-import { Auth } from "../helpers/utils/auth";
 
-export const API = process.env.REACT_APP_BASE_URL;
+export class Storage {
+  static setItem(key, value) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }
 
-const token = () => Storage.getItem("token");
-function headers() {
-  return {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  };
+  static getItem(key, defaultVal = {}) {
+    let data;
+    if (typeof window !== "undefined") {
+      data = localStorage.getItem(key);
+    }
+    if (data == null) {
+      return defaultVal;
+    } else if (
+      data.charAt(0) === "[" ||
+      data.charAt(0) === "{" ||
+      data.charAt(0) === '"'
+    ) {
+      return JSON.parse(data);
+    } else {
+      return data;
+    }
+  }
+
+  static removeItem(key) {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem(key);
+    }
+  }
 }
 
-function authHeaders() {
-  return {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    Authorization: `Token ${token()}sd`,
-  };
+export class Auth {
+  static isAuthenticated() {
+    const user = Storage.getItem("user");
+    // if (user && user.token) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+    return !!user;
+  }
+
+  static headers() {
+    return {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    };
+  }
+  static authHeader() {
+    const user = Storage.getItem("user");
+    if (user && user.token) {
+      return {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + user.token,
+      };
+    } else {
+      return {};
+    }
+  }
 }
+
+export const API = "https://katangwa.onrender.com";
+
+// const token = () => Storage.getItem('token')
+// function headers() {
+//   return {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   }
+// }
+
+// function authHeaders() {
+//   return {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//     Authorization: `Token ${token()}sd`,
+//   }
+// }
 
 function queryString(params) {
   const query = Object.keys(params)
@@ -28,7 +89,7 @@ function queryString(params) {
 }
 
 const api = {
-  fetch(url, params = {}, auth = false) {
+  fetch(url, params = {}, auth = true) {
     return axios
       .get(`${API}${url}${queryString(params)}`, {
         headers: auth ? Auth.authHeader() : Auth.headers(),
@@ -39,7 +100,7 @@ const api = {
       });
   },
 
-  async post(url, { ...data }, auth = false) {
+  async post(url, { ...data }, auth = true) {
     return axios
       .post(`${API}${url}`, data, {
         headers: auth ? Auth.authHeader() : Auth.headers(),
@@ -50,17 +111,15 @@ const api = {
       });
   },
 
-  put(url, data, auth = false) {
-    return fetch(`${API}${url}`, {
-      headers: auth ? authHeaders() : headers(),
-      // validateStatus: status => {
-      //   return status >= 200 && status < 500;
-      // },
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then()
-      .catch((err) => {});
+  async put(url, data, auth = true) {
+    return axios
+      .put(`${API}${url}`, data, {
+        headers: auth ? Auth.authHeader() : Auth.headers(),
+      })
+      .then((res) => res)
+      .catch((err) => {
+        throw new Error(err);
+      });
   },
 
   patch(url, data, auth = false) {
@@ -78,12 +137,13 @@ const api = {
       });
   },
 
-  delete(url, { ...data }, auth = false) {
+  async delete(url, auth = true) {
     return axios
       .delete(`${API}${url}`, {
-        data: data,
-
         headers: auth ? Auth.authHeader() : Auth.headers(),
+        validateStatus: (status) => {
+          return status >= 200 && status < 500; // default
+        },
       })
       .then((res) => res)
       .catch((err) => {

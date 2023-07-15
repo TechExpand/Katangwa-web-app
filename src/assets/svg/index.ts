@@ -12,8 +12,10 @@ import ArrowDown from './Arrow_Down.svg';
 import SendIcon from './Send.svg';
 import BuyIcon from './Buy.svg';
 import Location from './Location.svg'
+import LocationBig from './Location-big.svg'
 import CategoryIcon from './Category.svg';
 import Star from './Star.svg';
+import BulletArrow from './arrow_right.svg';
 export {
     GoogleIcon,
     InputEmail,
@@ -29,6 +31,8 @@ export {
     SendIcon,
     BuyIcon,
     CategoryIcon,
+    LocationBig,
     Location,
+    BulletArrow,
     Star
 }

@@ -7,7 +7,7 @@ const AuthNavbar: FC = () => {
   const router = useRouter();
 
   return (
-    <div className="flex justify-between items-center w-full h-max overflow-hidden p-4 md:p-7 max-w-screen-2xl bg-white mx-auto">
+    <div className="flex justify-between shadow-sm items-center w-full h-max overflow-hidden p-4 md:p-7 max-w-screen-2xl bg-white mx-auto">
       <div className="image-container md:w-[165px] w-[98px]">
         <Image
           alt="app-logo"
@@ -18,7 +18,7 @@ const AuthNavbar: FC = () => {
       </div>
       <div className="login-btn w-[98px] h-[44px] md:w-[150px] md:h-[48px]">
         <Button
-          className="w-full h-full p-4 bg-[#70A300] hover:bg-[#70A300] hover:opacity-75 rounded-lg font-bold capitalize"
+          className="w-full h-full p-4 bg-[#70A300] hover:bg-[#70A300] hover:opacity-75 rounded-lg font-semibold capitalize"
           disableElevation
           color="primary"
           variant="contained"

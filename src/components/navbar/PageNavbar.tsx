@@ -18,13 +18,37 @@ const PageNavbar: FC = () => {
       <div className="w-full bg-white shadow-md z-10 fixed top-0 left-0 right-0">
         <div className="bg-[#09253B] text-white w-full h-16 flex items-center">
           <div className="max-w-screen-2xl w-full mx-auto px-6 md:px-12 flex justify-between">
-            <div className="left hidden md:flex space-x-5 text-bold">
-              <p className="text-white font-semibold">Electronics</p>
-              <p className="text-white font-semibold">Computer</p>
-              <p className="text-white font-semibold">Media</p>
-              <p className="text-white font-semibold">Clothings</p>
-              <p className="text-white font-semibold">Services</p>
-              <p className="text-white font-semibold">Free items</p>
+            <div className="left flex w-[45%] overflow-x-auto space-x-5 text-bold">
+              <Link href={"/homepage/products"}>
+                <p className="text-white font-semibold text-xs md:text-base">
+                  Electronics
+                </p>
+              </Link>
+              <Link href={"/homepage/products"}>
+                <p className="text-white font-semibold text-xs md:text-base">
+                  Computer
+                </p>
+              </Link>
+              <Link href={"/homepage/products"}>
+                <p className="text-white font-semibold text-xs md:text-base">
+                  Media
+                </p>
+              </Link>
+              <Link href={"/homepage/products"}>
+                <p className="text-white font-semibold text-xs md:text-base">
+                  Clothings
+                </p>
+              </Link>
+              <Link href={"/homepage/services"}>
+                <p className="text-white font-semibold text-xs md:text-base">
+                  Services
+                </p>
+              </Link>
+              <Link href={"/homepage/products"} className="block">
+                <p className="text-white font-semibold text-xs w-[6rem] md:text-base">
+                  Free items
+                </p>
+              </Link>
             </div>
             <div className="right">
               <Link href="#" className="text-sm md:text-base font-semibold">
@@ -34,15 +58,15 @@ const PageNavbar: FC = () => {
           </div>
         </div>
         <div className="w-full bg-white shadow-md z-10 top-0 left-0 right-0">
-          <div className="flex space-x-12 items-center w-full h-max overflow-hidden py-4 md:py-7 px-6 md:px-12 max-w-screen-2xl mx-auto">
-            <div className="image-container">
+          <div className="flex justify-between md:space-x-12 items-center w-full h-max overflow-hidden py-4 md:py-7 px-6 md:px-12 max-w-screen-2xl mx-auto">
+            <Link href={"/homepage"} className="md:w-[165px] w-[100px]">
               <Image
                 alt="app-logo"
                 width={165}
                 height={38}
                 src="/images/logoKat.png"
               />
-            </div>
+            </Link>
 
             <div className="search-section w-auto flex-grow hidden md:flex items-center space-x-8">
               <div className="space-x-4 w-auto flex items-center flex-grow">
@@ -69,7 +93,7 @@ const PageNavbar: FC = () => {
             </div>
             <div className="login-btn w-[6rem] md:min-w-[111px] ">
               <Button
-                className="w-fit h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
+                className="w-[6.8rem] h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
                 sx={{ textTransform: "capitalize" }}
                 disableElevation
                 color="primary"

@@ -22,7 +22,8 @@ export default createTheme({
           ...(ownerState.variant === 'contained' &&
                     ownerState.color === 'primary' && {
                    
-                        borderRadius: "8px",
+            borderRadius: "8px",
+                      fontWeight: "600",
               backgroundColor: "#70A300 !important",
               color: '#fff',
                     fontSize: "1rem",
@@ -51,6 +52,18 @@ export default createTheme({
               '&:hover': {
                 borderColor: "#126969 !important",
                 borderWidth: '2px',
+                  },
+          }),
+                
+                ...(ownerState.variant === 'outlined' && ownerState.color === 'inherit' && {
+                    backgroundColor: "transparent",
+                    borderColor: "#9DA5B2 !important",
+                  color: '#4BBB8B',
+              borderWidth: '1.5px',
+              fontSize: "1rem",
+              '&:hover': {
+                borderColor: "#9DA5B2 !important",
+                borderWidth: '1.5px',
                   },
           }),
               

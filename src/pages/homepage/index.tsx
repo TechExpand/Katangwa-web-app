@@ -101,6 +101,19 @@ function Dashboard() {
       </div>
 
       <main className=" bg-white w-full md:flex-1 py-3 px-4 md:px-10">
+        <div className="flex mt-4 px-4 py-3 items-center justify-between">
+          <h3 className="font-medium text-black">
+            Showing Search Result for:{" "}
+          </h3>
+          <div className="flex items-center space-x-2 bg-[#F9F9F9] border-[#C4C4C4] p-2 rounded-full">
+            <Button className="px-8 py-2 text-sm font-normal text-[#253B4B] rounded-full shadow-md">
+              Listed Items
+            </Button>
+            <Button className="px-8 py-2 text-sm font-normal text-[#253B4B]">
+              View Requests
+            </Button>
+          </div>
+        </div>
         <div className="sort-section flex space-x-6 items-center bg-[#F9F9F9] px-4 md:px-10 rounded-md py-3">
           <h3 className="font-medium text-black">Sort by:</h3>
 

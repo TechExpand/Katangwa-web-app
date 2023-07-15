@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
 import type { AppProps } from 'next/app'
 import { ReactElement, ReactNode } from "react";
+import { store } from "../reduxcontainer/reduxstore/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -35,7 +36,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={muiTheme}>
-        {getLayout(<Component {...pageProps} />)}
+        <Provider store={store}>
+          {getLayout(<Component {...pageProps} />)}
+        </Provider>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
     </QueryClientProvider>

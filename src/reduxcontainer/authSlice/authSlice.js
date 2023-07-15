@@ -1,12 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { setMessage } from './message';
-import { Storage } from "../../helpers/utils/storage";
-// import { login } from '../reducer/authReducer';
-// import AuthService from '../services/auth.service';
+import { Storage } from "src/auth/api";
 import authService from "../services/authService/authService";
 
 export const login = createAsyncThunk(
-  "/auth/login",
+  "auth/login",
   async ({ email, password }, thunkAPI) => {
     try {
       const data = await authService.login(email, password);
@@ -23,16 +20,11 @@ export const login = createAsyncThunk(
   }
 );
 
-export const register = createAsyncThunk(
-  "/auth/register",
-  async ({ email, first_name, last_name, phone }, thunkAPI) => {
+export const signup = createAsyncThunk(
+  "auth/signup",
+  async ({ fullname, email, password }, thunkAPI) => {
     try {
-      const data = await authService.register(
-        email,
-        first_name,
-        last_name,
-        phone
-      );
+      const data = await authService.signup(fullname, email, password);
       return data;
     } catch (error) {
       const message =
@@ -63,38 +55,15 @@ const authSlice = createSlice({
     },
   },
   extraReducers: {
-    // [register.fulfilled]: (state, action) => {
-    //   state.isLoggedIn = false;
-    // },
-    // [register.rejected]: (state, action) => {
-    //   state.isLoggedIn = false;
-    // },
     [login.fulfilled]: (state, action) => {
       state.user = action.payload;
     },
     [login.rejected]: (state, action) => {
       state.user = null;
     },
-
-    [activate.fulfilled]: (state, action) => {
-      state.user = action.payload.user;
-    },
-    [activate.rejected]: (state, action) => {
-      state.user = null;
-    },
-    [getToken.fulfilled]: (state, action) => {
-      state.user = action.payload.user;
-    },
-    [getToken.rejected]: (state, action) => {
-      state.user = null;
-    },
-    // [logout.fulfilled]: (state, action) => {
-    //   state.isLoggedIn = false;
-    //   state.user = null;
-    // },
   },
 });
 
 export const { setUser, removeUser } = authSlice.actions;
-const { reducer } = authSlice;
-export default reducer;
+const authReducer = authSlice.reducer;
+export default authReducer;

@@ -25,7 +25,7 @@ function Onboarding() {
             width={237}
             height={52}
           />
-          <div className="italic font-bold text-xs absolute bottom-0 -right-28">
+          <div className="italic font-bold text-xs text-black md:-right-28 absolute bottom-0 -right-32">
             Exchange with connections
           </div>
         </div>
@@ -84,11 +84,13 @@ function Onboarding() {
             >
               View Requests
             </Button>
+
             <Button
               className="w-60 h-[3.3rem] p-4 capitalize"
               color="primary"
               disableElevation
               variant="outlined"
+              onClick={() => router.push("/request-product")}
             >
               Request an Item/Service
             </Button>

@@ -10,7 +10,7 @@ const OAuthButton: FC<InputProps> = ({ text = "Log in" }) => {
     <Button
       variant="outlined"
       disableElevation
-      className="w-full h-full p-4  font-bold capitalize"
+      className="w-full h-full p-4  font-semibold capitalize"
     >
       Sign in with Google
     </Button>

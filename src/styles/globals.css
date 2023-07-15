@@ -5,7 +5,31 @@
   font-family: 'Konstanz';
   src: url('../assets/Konstanz/Fontspring-DEMO-konstanz-semibold.otf');
 
-  font-weight: 600;
+  font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Konstanz';
+    src: url('../assets/Konstanz/Fontspring-DEMO-konstanz-light.otf');
+  
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Konstanz';
+    src: url('../assets/Konstanz/Fontspring-DEMO-konstanz-regular.otf');
+  
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Konstanz';
+    src: url('../assets/Konstanz/Fontspring-DEMO-konstanz-thin.otf');
+  
+    font-weight: 200;
   font-style: normal;
 }
 :root {
@@ -53,6 +77,49 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.352);
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: gray;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid rgba(128, 128, 128, 0.211);
+  /* creates padding around scroll thumb */
+}
+
+* {
+  scrollbar-width: 8px;
+  scrollbar-color: gray rgba(128, 128, 128, 0.352);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.352);
+  /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid rgba(128, 128, 128, 0.211);
+  /* creates padding around scroll thumb */
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -122,6 +189,11 @@ p {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+.product-detail>img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 .auth-input {
   background-color: #F0F0F1;
 }

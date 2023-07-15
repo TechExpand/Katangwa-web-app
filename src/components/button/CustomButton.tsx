@@ -10,7 +10,7 @@ const CustomButton: FC<InputProps> = ({ text = "Log in" }) => {
     <Button
       variant="contained"
       disableElevation
-      className="w-full h-full p-4 bg-gradient-to-r font-bold capitalize from-[#126969] to-[#4BBB8B]"
+      className="w-full h-full p-4 bg-gradient-to-r font-semibold capitalize from-[#126969] to-[#4BBB8B]"
     >
       {text}
     </Button>

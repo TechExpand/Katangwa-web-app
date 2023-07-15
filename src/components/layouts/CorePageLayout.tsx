@@ -11,7 +11,7 @@ const CorePageLayout: FC<CorePageLayoutProps> = ({ children }) => {
     <>
       <PageNavbar />
 
-      <div className="nav-underlay mt-16 h-28 bg-transparent w-full"></div>
+      <div className="nav-underlay mt-16 h-20 md:h-28 bg-transparent w-full"></div>
       {children}
       <Footer />
     </>
