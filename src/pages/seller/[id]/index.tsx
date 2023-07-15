@@ -31,7 +31,11 @@ function SellerPage() {
           <h1 className="text-4xl text-[#253B4B] font-semibold">Listings</h1>
           <div className="content gap-3 lg:gap-y-8 place-items-center grid grid-cols-2 lg:grid-cols-fluid mt-6">
             {Array.from([1, 1, 1, 1, 1, 1, 1, 1, 1]).map((item, index) => (
-              <Link href={`/product-details/${index}`} className="w-fit">
+              <Link
+                href={`/product-details/${index}`}
+                key={index}
+                className="w-fit"
+              >
                 <ProductCard key={index} />
               </Link>
             ))}

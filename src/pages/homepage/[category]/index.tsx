@@ -62,7 +62,7 @@ function Products() {
         <div className="content gap-3 lg:gap-y-8 place-items-center grid grid-cols-2 lg:grid-cols-fluid mt-6">
           {Array.from([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]).map(
             (item, index) => (
-              <Link href={`/product-details/${index}`}>
+              <Link href={`/product-details/${index}`} key={index}>
                 <ProductCard key={index} />
               </Link>
             )

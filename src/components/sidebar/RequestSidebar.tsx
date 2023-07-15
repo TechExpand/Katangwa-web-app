@@ -89,7 +89,7 @@ const RequestSidebar: FC<SidebarProps> = ({ displayAbout = false }) => {
           <ul className="space-y-4">
             <li className="inline-flex items-center space-x-1.5">
               <BulletArrow />
-              <p> Remember, don't send any pre-payments</p>
+              <p> Remember, don&apos;t send any pre-payments</p>
             </li>
 
             <li className="inline-flex items-center space-x-1.5">
