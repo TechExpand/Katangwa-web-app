@@ -1,12 +1,8 @@
-import { getLayout as getPageLayout } from "@/components/layouts/AuthLayout";
+import { getLayout as getPageLayout } from "@/components/layouts/CorePageLayout";
 import Onboarding from "./onboarding";
 
 export default function Home() {
-  return (
-    <>
-      <Onboarding />
-    </>
-  );
+  return <></>;
 }
 
 Home.getLayout = getPageLayout;

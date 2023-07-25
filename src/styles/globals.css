@@ -210,4 +210,7 @@ color: #70A300;
   }
 }
 
+.form-label {
+  color: #737373;
+}
 @tailwind utilities;

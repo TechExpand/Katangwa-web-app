@@ -69,20 +69,16 @@ function Login() {
   };
   return (
     <>
-      <AuthContainer title="Log in" subtext="">
-        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12">
+      <AuthContainer title="Log in" subtext="Enter your login details below">
+        <div className="shadow-mlg rounded-xl max-w-[506px] px-4 md:px-7 w-full py-9">
           <form
             autoComplete="off"
-            className=" space-y-7"
+            className="space-y-6"
             onSubmit={(evt) => {
               evt.preventDefault();
               formik.handleSubmit();
             }}
           >
-            <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
-              Enter Username and Enter Phone Number
-            </p>
-
             <CustomInput
               icon={<InputEmail />}
               type="email"
@@ -103,7 +99,7 @@ function Login() {
                 handleChange={formik.handleChange("password")}
                 placeholder="Password"
               />
-              <div className="w-full justify-end my-2 p-0 flex">
+              <div className="w-full justify-end mt-2 p-0 flex">
                 <Link href={"/reset-password"} className="text-link text-sm">
                   Forgot Password?
                 </Link>
@@ -116,15 +112,18 @@ function Login() {
               disabled={formik.isSubmitting}
               variant="contained"
             >
-              {formik.isSubmitting ? "Loading..." : "Login"}
+              <p className="font-semibold text-white">
+                {" "}
+                {formik.isSubmitting ? "Loading..." : "Login"}
+              </p>
             </Button>
           </form>
         </div>
 
-        <div className="w-full space-y-5 px-6 md:px-10 mt-8 text-center mx-auto">
+        <div className="w-full space-y-6 px-6 md:px-10 mt-8 text-center mx-auto">
           <div className="separator flex space-x-3 px-2 items-center">
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
-            <p>OR</p>
+            <p className="font-normal text-sm">OR</p>
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
           </div>
           <Button
@@ -132,15 +131,15 @@ function Login() {
             disableElevation
             color="inherit"
             onClick={handleLogin}
-            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2] font-bold capitalize"
+            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2] font-bold normal-case"
           >
             <GoogleIcon />
-            <p className="capitalize text-sm md:text-base">
-              Signin with Google
+            <p className="text-sm md:text-base font-semibold">
+              Sign in With Google
             </p>
           </Button>
           <div className="w-fit mx-auto">
-            <p className="md:text-lg text-[#737373] font-semibold">
+            <p className="text-base text-[#737373] font-medium">
               Don’t have an account?{" "}
               <Link href="/signup" className="text-link">
                 Sign up

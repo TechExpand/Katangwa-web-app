@@ -10,37 +10,39 @@ function Onboarding() {
 
   return (
     <div
-      className="w-full py-16"
+      className="w-full py-16 px-4"
       style={{
         backgroundImage: `url(/images/BG.png)`,
         width: "100vw",
         height: "100%",
       }}
     >
-      <div className="shadow-mlg mx-auto rounded-lg w-full bg-white md:w-[48rem] px-4 md:px-8 py-12 space-y-7">
-        <div className="image-container relative w-[167px] md:w-fit ml-16 mr-auto md:mx-auto">
+      <div className="shadow-mlg mx-auto rounded-s-3xl w-full bg-white md:w-[48.1875rem] px-4 md:px-16 py-7 space-y-3">
+        <div className="image-container relative w-[167px] md:w-fit ml-[10%] mr-auto md:mx-auto">
           <Image
             src="/images/logoKat.png"
             alt="app-logo"
             width={237}
             height={52}
           />
-          <div className="italic font-bold text-xs text-black md:-right-28 absolute bottom-0 -right-32">
+          <div className="italic font-semibold text-xs text-black md:-right-28 absolute bottom-0 -right-32">
             Exchange with connections
           </div>
         </div>
-        <div className="search w-auto max-w-xl mx-auto flex-grow h-[48px] md:h-[55px]">
+        <div className="search w-auto max-w-[35.4375rem] mx-auto flex-grow h-[48px] md:h-[55px]">
           <CustomSearch placeholder="What item are you looking for?" />
         </div>
-        <div className="font-medium text-lg flex flex-col items-center space-y-7">
-          <p className="text-[#253B4B]">What do you want to do today?</p>
-          <div className="space-y-5 md:flex md:space-x-10">
-            <div className="bg-[#b36516] rounded-lg overflow-hidden relative">
+        <div className="font-medium text-lg flex py-10 flex-col items-center space-y-7">
+          <p className="text-[#253B4B] text-lg font-medium">
+            What do you want to do today?
+          </p>
+          <div className="space-y-5 md:space-y-0 md:flex md:space-x-10">
+            <div className="bg-[#b36516] rounded-xl overflow-hidden  relative">
               <Image
                 src="/images/buy_image.png"
                 alt="app-logo"
                 width={288}
-                height={271}
+                height={238}
               />
               <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2">
                 <Button
@@ -55,12 +57,12 @@ function Onboarding() {
               </div>
             </div>
 
-            <div className="bg-[#b36516] rounded-lg overflow-hidden relative">
+            <div className="bg-[#b36516] rounded-xl overflow-hidden relative">
               <Image
                 src="/images/sell_image.png"
                 alt="app-logo"
                 width={288}
-                height={271}
+                height={238}
               />
               <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2">
                 <Button
@@ -77,7 +79,7 @@ function Onboarding() {
           </div>
           <div className="flex flex-col space-y-5">
             <Button
-              className="w-60 h-[3.3rem] p-4 capitalize"
+              className="w-[248px] h-12 px-5 py-2.5 capitalize"
               color="primary"
               disableElevation
               variant="contained"
@@ -86,7 +88,7 @@ function Onboarding() {
             </Button>
 
             <Button
-              className="w-60 h-[3.3rem] p-4 capitalize"
+              className="w-[248px] h-12 px-5 py-2.5 capitalize"
               color="primary"
               disableElevation
               variant="outlined"

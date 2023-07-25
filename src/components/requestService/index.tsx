@@ -1,3 +1,4 @@
+"use client";
 import { Button, FormControl, FormLabel, TextField } from "@mui/material";
 import { FC, ReactElement } from "react";
 
@@ -9,9 +10,9 @@ export interface InputProps {
 
 const RequestService: FC = () => {
   return (
-    <div className="space-y-5">
+    <div className="space-y-7">
       <FormControl className="w-full p-0 space-y-2">
-        <FormLabel>Type of Service</FormLabel>
+        <p className="form-label">Type of Service</p>
         <TextField
           placeholder="Tell us what you are looking for"
           className="w-full"
@@ -19,24 +20,24 @@ const RequestService: FC = () => {
       </FormControl>
 
       <FormControl className="w-full p-0 space-y-2">
-        <FormLabel>Rate</FormLabel>
+        <p className="form-label">Rate</p>
         <TextField placeholder="Input hourly rate" className="w-full" />
       </FormControl>
 
       <FormControl className="w-full p-0 space-y-2">
-        <FormLabel>Location</FormLabel>
+        <p className="form-label">Location</p>
         <TextField placeholder="Select Category" className="w-full" />
       </FormControl>
 
       <FormControl className="w-full p-0 space-y-2">
-        <FormLabel>Frequency</FormLabel>
+        <p className="form-label">Frequency</p>
         <div className="rounded-full w-fit border flex p-2">
-          <div className="bg-[#70A300] cursor-pointer rounded-full px-3 py-2 text-xs">
-            One Off
-          </div>
-          <div className="rounded-full cursor-pointer px-3 py-2 text-xs">
+          <p className="bg-[#70A300] text-white font-medium cursor-pointer rounded-full px-2.5 py-2 text-sm">
+            One-Off
+          </p>
+          <p className="rounded-full text-[#5F5F5F] font-medium cursor-pointer px-3 py-2 text-sm">
             Recurring
-          </div>
+          </p>
         </div>
       </FormControl>
       <div className="py-4">

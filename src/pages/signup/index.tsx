@@ -1,4 +1,10 @@
-import { GoogleIcon, InputEmail, Password, Profile } from "@/assets/svg";
+import {
+  ArrowRight,
+  GoogleIcon,
+  InputEmail,
+  Password,
+  Profile,
+} from "@/assets/svg";
 import AuthContainer from "@/components/containers/AuthContainer";
 import CustomInput from "@/components/input/CustomInput";
 import { signup } from "@/reduxcontainer/authSlice/authSlice";
@@ -75,17 +81,17 @@ function SignUp() {
         title="Create a Katangwa account"
         subtext="Register now to get started on Katangwa"
       >
-        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12">
+        <div className="shadow-mlg rounded-xl max-w-[506px] px-4 md:px-7 w-full py-8">
           <form
             autoComplete="off"
-            className=" space-y-7"
+            className=" space-y-6"
             onSubmit={(evt) => {
               evt.preventDefault();
               formik.handleSubmit();
             }}
           >
-            <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
-              Enter Your Details below
+            <p className="font-nunito text-[#353945] tex-sm md:text-sm font-bold">
+              Enter Your Details Below
             </p>
             <CustomInput
               icon={<Profile />}
@@ -101,60 +107,73 @@ function SignUp() {
               value={formik.values.email}
               handleChange={formik.handleChange("email")}
             />
-            <CustomInput
-              icon={<Password />}
-              type="password"
-              value={formik.values.password}
-              handleChange={formik.handleChange("password")}
-              placeholder="Password"
-            />
+            <div>
+              <input
+                className="hidden"
+                type="password"
+                name="fakeusernameremembered"
+              />
+              <CustomInput
+                icon={<Password />}
+                type="password"
+                value={formik.values.password}
+                handleChange={formik.handleChange("password")}
+                placeholder="Password"
+              />
+              <small className="w-full justify-start text-[B1B5C3] text-xs font-light mt-2 p-0 flex">
+                Must be atleast 8 characters
+              </small>
+            </div>
             <div className="flex space-x-4 text-left">
               <input
                 type="checkbox"
-                className="w-8 cursor-pointer -mt-3 bg-white"
+                className="w-5 -mt-2 cursor-pointer bg-white checked:bg-[#70A300]"
                 name="check"
                 id="check"
               />
-              <p className="text-[#737373]">
+              <p className="text-[#737373] text-xs font-normal">
                 By creating an account, you agree to our terms of service and
                 privacy policy
               </p>
             </div>
             <Button
-              className="w-full h-12 md:h-14 p-4 capitalize"
+              className="w-full flex items-center justify-center space-x-2 h-12 md:h-14 p-4 capitalize"
               color="primary"
               disableElevation
               disabled={formik.isSubmitting}
               variant="contained"
               type="submit"
             >
-              {formik.isSubmitting ? "Loading..." : "Continue"}
+              <p className="font-semibold text-white">
+                {formik.isSubmitting ? "Loading..." : "Continue"}
+              </p>
+              <ArrowRight />
             </Button>
           </form>
         </div>
-        <div className="w-full space-y-5 px-6 md:px-10 mt-8 text-center mx-auto">
+        <div className="w-full space-y-6 px-6 md:px-10 mt-8 text-center mx-auto">
           <div className="separator flex space-x-3 px-2 items-center">
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
-            <p>OR</p>
+            <p className="font-normal text-sm">OR</p>
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
           </div>
-
           <Button
             variant="outlined"
             disableElevation
             color="inherit"
-            className="w-full h-12 md:h-14 space-x-2 p-4 outline-[#9DA5B2] font-bold capitalize"
+            onClick={handleSignup}
+            className="w-full h-12 md:h-14 normal-case space-x-2 p-4 outline-[#9DA5B2] font-bold"
           >
             <GoogleIcon />
-            <p className="capitalize text-sm md:text-base">
-              Signup with Google
+            <p className="text-sm md:text-base font-semibold">
+              Sign in with Google
             </p>
           </Button>
           <div className="w-fit mx-auto">
-            <p className="text-lg md:text-xl text-[#737373] font-semibold">
-              Have an account already?{" "}
-              <Link href="/login" className="text-link">
-                Log in
+            <p className="text-base text-[#737373] font-medium">
+              Already have an account?{" "}
+              <Link href="/signup" className="text-link">
+                Log In
               </Link>
             </p>
           </div>

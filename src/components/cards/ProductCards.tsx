@@ -11,7 +11,7 @@ export interface InputProps {
 const ProductCard: FC = () => {
   const router = useRouter();
   return (
-    <div className="card max-w-[17.875rem] max-h-[18.8125rem] bg-white shadow rounded-lg">
+    <div className="card w-full max-h-[18.8125rem] bg-white shadow rounded-lg">
       <Image
         alt="product-image"
         src={"/images/sneakers.png"}
@@ -25,7 +25,7 @@ const ProductCard: FC = () => {
             <small>Men&apos;s shoe</small>
           </p>
           <div className="flex justify-between w-full">
-            <p className="text-sm md:text-base">Nike Revolution</p>
+            <p className="text-sm md:text-base font-medium">Nike Revolution</p>
             <div className="flex items-center space-x-0.5">
               <Star />
               <p className="text-sm md:text-base">2</p>
@@ -38,7 +38,7 @@ const ProductCard: FC = () => {
             <Location />
             <small>Lagos Island</small>
           </p>
-          <h2 className="text-sm md:text-base">&#8358;20,000</h2>
+          <h2 className="text-sm md:text-base font-semibold">&#8358;20,000</h2>
         </div>
       </div>
     </div>

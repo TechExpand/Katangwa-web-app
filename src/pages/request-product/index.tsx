@@ -21,11 +21,7 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ py: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ py: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -45,12 +41,12 @@ function RequestProduct() {
   return (
     <div className="max-w-screen-2xl md:py-20 px-6 md:px-12 mx-auto">
       <main className=" bg-white shadow-mlg w-full space-y-10 mb-10">
-        <div className="space-y-5 pt-4 max-w-5xl mx-auto pb-10 md:pb-20 md:pt-14">
+        <div className="space-y-6 pt-4 max-w-5xl mx-auto pb-10 md:pb-20 md:pt-14">
           <h1 className="text-4xl text-[#253B4B] font-semibold">
             {value === 1 ? "Request a Service" : "Request Special Item"}
           </h1>
           {value === 0 && (
-            <p className="sub-text mt-3">
+            <p className="sub-text font-medium mt-3">
               Cant find what you are looking for? Someone here might have what
               you need, submit a request below.
             </p>

@@ -18,7 +18,7 @@ function VerifyAccount() {
         title="Phone Number and Date of Birth "
         subtext="Register an account now to get started on Katangwa"
       >
-        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 md:py-12 space-y-7">
+        <div className="shadow-mlg rounded-lg max-w-[506px] w-full px-5 md:px-8 pb-6 py-12 space-y-7">
           <p className="font-nunito text-[#353945] tex-sm md:text-base font-bold my-3">
             Please Enter More Details
           </p>

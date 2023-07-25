@@ -4,13 +4,13 @@ import {
   configureStore,
 } from "@reduxjs/toolkit";
 import authReducer from "../authSlice/authSlice";
-import navReducer from "../navSlice/navSlice";
+import filterMenuReducer from "../filterMenuSlice/filterMenuSlice";
 import thunk, { ThunkMiddleware } from "redux-thunk";
 import { useSelector } from "react-redux";
 
 const reducer = combineReducers({
   authReducer: authReducer,
-  navReducer: navReducer,
+  filterMenuReducer: filterMenuReducer,
 });
 export const store = configureStore(
   { reducer },

@@ -15,7 +15,15 @@ import Location from './Location.svg'
 import LocationBig from './Location-big.svg'
 import CategoryIcon from './Category.svg';
 import Star from './Star.svg';
+import FilterIcon from './Filter_Icon.svg';
+import Dropdown from './Dropdown_icon.svg'
+import BreadCrumbImg from './breadcrumb.svg'
+import CategoryMob from './CategoryMob.svg';
 import BulletArrow from './arrow_right.svg';
+import BackArrow from './back_arrow.svg'
+import ProfileLight from './ProfileLight.svg';
+import ArrowRight from './Arrow-right.svg';
+import NotificationLight from './NotificationLight.svg';
 export {
     GoogleIcon,
     InputEmail,
@@ -34,5 +42,13 @@ export {
     LocationBig,
     Location,
     BulletArrow,
-    Star
+    ArrowRight,
+    Star,
+    BreadCrumbImg,
+    FilterIcon,
+    Dropdown,
+    CategoryMob,
+    NotificationLight,
+    ProfileLight,
+    BackArrow,
 }

@@ -1,68 +1,78 @@
-import { CategoryIcon } from "@/assets/svg";
+import { CategoryIcon, FilterIcon } from "@/assets/svg";
+import BreadCrumb from "@/components/BreadCrumb";
 import ProductCard from "@/components/cards/ProductCards";
 import ServiceCard from "@/components/cards/ServiceCard";
+import CustomSelect from "@/components/input/CustomSelect";
 import { getLayout as getPageLayout } from "@/components/layouts/CorePageLayout";
+import MobileFilter from "@/components/mobileMenu/MobileFilter";
 import Sidebar from "@/components/sidebar";
-import { Button, MenuItem, Select } from "@mui/material";
+import { setVisible } from "@/reduxcontainer/filterMenuSlice/filterMenuSlice";
+import { Button, FormControl, MenuItem, Select } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function Services() {
   const [select, setSelect] = useState("none");
 
-  const handleChange = (event: any) => {
-    setSelect(event.target.value);
+  const dispatch = useDispatch();
+  const { showFilter } = useSelector((state: any) => state.filterMenuReducer);
+
+  const handleToggleFilter = () => {
+    dispatch(setVisible(!showFilter));
   };
   return (
-    <div className="max-w-screen-2xl mx-auto flex">
+    <div className="max-w-[90rem] mx-auto flex pb-32">
       <Sidebar />
 
-      <main className=" bg-white w-full md:flex-1 py-3 px-4 md:px-10">
-        <div className="flex mt-4 px-4 py-3 items-center justify-between">
-          <h3 className="font-medium text-black">
-            Showing Search Result for:{" "}
-          </h3>
-          <div className="flex items-center space-x-2 bg-[#F9F9F9] border-[#C4C4C4] p-2 rounded-full">
-            <Button className="px-8 py-2 text-sm font-normal text-[#253B4B] rounded-full shadow-md">
-              Listed Items
+      <main className=" bg-white w-full md:flex-1 py-3 px-4 md:pr-[4.375rem] md:pl-7">
+        <div className="mt-8 flex items-center md:px-5 pb-5">
+          <div className="hidden md:block">
+            <BreadCrumb />
+          </div>
+          <div className="flex w-fit items-center mr-0 md:ml-auto space-x-2 bg-[#F9F9F9] border-[#c4c4c44e] border-[0.5px] p-2 md:p-2.5 rounded-full">
+            <Button className="px-6 md:px-8 py-2 text-sm font-normal bg-white rounded-full shadow-md">
+              <p className="text-xs font-medium text-[#253B4B]">Listed Items</p>
             </Button>
-            <Button className="px-8 py-2 text-sm font-normal text-[#253B4B]">
-              View Requests
+            <Button className="px-6 md:px-8 py-2 text-sm font-normal text-[#253B4B]">
+              <p className="text-xs text-[#878787] font-medium">
+                View Requests
+              </p>
             </Button>
           </div>
-        </div>
-        <div className="sort-section flex space-x-6 items-center bg-[#F9F9F9] px-4 md:px-10 rounded-md py-3">
-          <h3 className="font-medium text-black">Sort by:</h3>
 
-          <Select
-            value={select}
-            type="text"
-            variant="outlined"
-            className="w-36 h-12"
-            onChange={(event) => handleChange(event)}
+          <div
+            className="border border-[#C4C4C4] rounded-full p-2 mr-0 ml-auto md:hidden"
+            onClick={handleToggleFilter}
           >
-            <MenuItem
-              value="none"
-              disabled
-              className="text-[#828282] font-semibold"
-            >
-              Popular
-            </MenuItem>
-            <MenuItem value="1">Option 1</MenuItem>
-            <MenuItem value="2">Option 2</MenuItem>
-            <MenuItem value="3">Option 3</MenuItem>
-          </Select>
+            <FilterIcon />
+          </div>
+        </div>
+        <div className="sort-section hidden md:flex space-x-6 items-center bg-[#F9F9F9] px-4 md:px-10 rounded-md py-3">
+          <p className="font-medium md:text-base text-sm text-black">
+            Sort by:
+          </p>
+
+          <FormControl className="md:w-32">
+            <CustomSelect placeholder="Popular" />
+          </FormControl>
         </div>
 
-        <div className="content gap-3 lg:gap-y-8 place-items-center grid grid-cols-2 lg:grid-cols-fluid mt-6">
+        <div className="content gap-y-4 gap-x-2 md:gap-x-12 lg:gap-y-14 place-items-start grid grid-cols-2 lg:grid-cols-fluid mt-6">
           {Array.from([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]).map(
             (item, index) => (
-              <Link href={`/product-details/${index}`} key={index}>
+              <Link
+                className="w-full"
+                href={`/product-details/${index}`}
+                key={index}
+              >
                 <ServiceCard key={index} />
               </Link>
             )
           )}
         </div>
+        {/* mobile menu */}
+        <MobileFilter />
       </main>
     </div>
   );

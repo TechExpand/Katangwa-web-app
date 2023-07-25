@@ -4,8 +4,8 @@ export interface InputProps {
   placeholder?: string;
   icon?: ReactElement;
   type?: string;
-  value: string;
-  handleChange: (email: any) => void;
+  value?: string;
+  handleChange?: (email: any) => void;
 }
 
 const CustomInput: FC<InputProps> = ({
@@ -16,8 +16,8 @@ const CustomInput: FC<InputProps> = ({
   handleChange,
 }) => {
   return (
-    <div className="w-full h-full p-0 border-[#9DA5B2] border rounded-xl overflow-hidden font-bold capitalize flex">
-      <div className="avatar w-16 flex justify-center items-center p-3">
+    <div className="w-full h-14 p-0 border-[#9DA5B2] border rounded-slg bg-[#F0F0F1] overflow-hidden font-bold capitalize flex">
+      <div className="avatar flex justify-center bg-[#EBEBEB] items-center w-[60px] p-2.5">
         {icon}
       </div>
       <input className="hidden" type={type || "text"} name={type || "text"} />
@@ -31,7 +31,7 @@ const CustomInput: FC<InputProps> = ({
         onChange={handleChange}
         aria-autocomplete="none"
         placeholder={placeholder}
-        className="auth-input p-2 md:p-4 leading-7 text-lg font-normal w-full bg-[#9da5b241] outline-none"
+        className="auth-input px-4 font-nunito md:p-4 text-base font-normal w-full outline-none"
       />
     </div>
   );

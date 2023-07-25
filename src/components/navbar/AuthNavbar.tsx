@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC, ReactElement } from "react";
@@ -7,18 +7,26 @@ const AuthNavbar: FC = () => {
   const router = useRouter();
 
   return (
-    <div className="flex justify-between shadow-sm items-center w-full h-max overflow-hidden p-4 md:p-7 max-w-screen-2xl bg-white mx-auto">
-      <div className="image-container md:w-[165px] w-[98px]">
-        <Image
-          alt="app-logo"
-          width={165}
-          height={38}
-          src="/images/logoKat.png"
-        />
-      </div>
-      <div className="login-btn w-[98px] h-[44px] md:w-[150px] md:h-[48px]">
+    <Box className=" w-full shadow-sm">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        marginX="auto"
+        alignItems="center"
+        maxWidth="90rem"
+        mx="auto"
+        className="px-6 h-20 md:h-[6.25rem] md:px-14"
+      >
+        <div className="img-container md:w-[15.12625rem] w-[10rem]">
+          <Image
+            alt="app-logo"
+            width={242.02}
+            height={60.5}
+            src="/images/logoKat.png"
+          />
+        </div>
         <Button
-          className="w-full h-full p-4 bg-[#70A300] hover:bg-[#70A300] hover:opacity-75 rounded-lg font-semibold capitalize"
+          className="w-[8rem] md:w-[9.375rem] hover:opacity-80"
           disableElevation
           color="primary"
           variant="contained"
@@ -32,8 +40,8 @@ const AuthNavbar: FC = () => {
             ? "Sign Up"
             : "Login"}
         </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
