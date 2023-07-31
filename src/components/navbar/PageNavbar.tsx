@@ -21,8 +21,10 @@ import MobileMenu from "../mobileMenu/MobileMenu";
 const PageNavbar: FC = () => {
   const [isActive, setIsActive] = useState(false);
   const router = useRouter();
+  const [categoryActive, setCategoryActive] = useState(false);
   const dispatch = useDispatch();
   const { showFilter } = useSelector((state: any) => state.filterMenuReducer);
+  const { isAuthenticated } = useSelector((state: any) => state.authReducer);
 
   const menuToggle = () => {
     if (showFilter) {
@@ -104,7 +106,7 @@ const PageNavbar: FC = () => {
         {/* bottom navbar start */}
         <div className="w-full bg-white shadow-md z-10 top-0 left-0 right-0">
           <div className="md:flex hidden justify-between md:space-x-8 items-center w-full h-max overflow-hidden py-4 md:py-7 px-6 md:px-[3.75rem] max-w-[90rem] mx-auto">
-            <Link href={"/homepage"} className="md:w-[231.578px] w-[165px]">
+            <Link href={"/onboarding"} className="md:w-[231.578px] w-[165px]">
               <Image
                 alt="app-logo"
                 width={231.578}
@@ -115,9 +117,64 @@ const PageNavbar: FC = () => {
 
             <div className="search-section w-auto flex-grow flex items-center md:justify-between space-x-8">
               <div className="space-x-4 flex items-center flex-grow">
-                <div className="flex items-center space-x-2">
+                <div
+                  className="flex user-group relative items-center hover:cursor-pointer space-x-2"
+                  onClick={() => setCategoryActive(!categoryActive)}
+                >
                   <p className="text-base font-medium">Category</p>
                   <ArrowDown />
+
+                  <div
+                    className={`z-50 fixed pin-r top-48 left-[15%] h-[65vh] w-[70vw] bg-white shadow-lg ${
+                      !categoryActive ? "hidden" : "block"
+                    }`}
+                  >
+                    <div className="w-full h-full flex">
+                      <div className="w-[30%]  h-full bg-[#70A300] pl-5 pt-3 pb-20 flex flex-col">
+                        <p className="h-14 px-2 flex items-center bg-white text-[#70A300] font-medium">
+                          Men’s Fashion
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Home and Furniture
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Electronics
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Mobile Devices
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Babies
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Office Equipments
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Kitchen Items
+                        </p>
+                        <p className="h-16 px-2 flex items-center text-white font-medium">
+                          Services
+                        </p>
+                      </div>
+                      <div className="bg-white flex w-full justify-between p-12">
+                        <div className="space-y-2.5">
+                          <p className="text-sm">Clothing</p>
+                          <p className="text-sm">Accessories</p>
+                          <p className="text-sm">Shoes</p>
+                          <p className="text-sm">Jewelries</p>
+                          <p className="text-sm">Underwears</p>
+                          <p className="text-sm">T-Shirts</p>
+                          <p className="text-sm">Traditionals</p>
+                          <p className="text-sm">Trousers & Chinos</p>
+                          <p className="text-sm">Jerseys</p>
+                          <p className="text-sm">Shorts</p>
+                        </div>
+                        <div className="w-[240px] h-[360px]">
+                          <img src="/images/thumb.png" alt="image" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* display for other pages aside onboarding */}
@@ -128,18 +185,20 @@ const PageNavbar: FC = () => {
                 )}
               </div>
             </div>
-            <div className="login-contents space-x-4 flex items-center">
-              <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
-                <NotificationIcon />
-              </div>
+            {!!isAuthenticated && (
+              <div className="login-contents space-x-4 flex items-center">
+                <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
+                  <NotificationIcon />
+                </div>
 
-              <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
-                <MessageIcon />
+                <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
+                  <MessageIcon />
+                </div>
+                <div className="px-4 h-9 flex items-center justify-center border-l-2 border-[#B1B5C3]">
+                  <PersonIcon />
+                </div>
               </div>
-              <div className="px-4 h-9 flex items-center justify-center border-l-2 border-[#B1B5C3]">
-                <PersonIcon />
-              </div>
-            </div>
+            )}
             <div className="login-btn w-[6rem] md:min-w-[111px]">
               <Button
                 className="w-[6.8rem] h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"

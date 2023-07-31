@@ -4,9 +4,12 @@ import { getLayout as getPageLayout } from "@/components/layouts/CorePageLayout"
 import { Button } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 function Onboarding() {
   const router = useRouter();
+
+  const { isAuthenticated } = useSelector((state: any) => state.authReducer);
 
   return (
     <div
@@ -47,7 +50,11 @@ function Onboarding() {
               <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2">
                 <Button
                   color="primary"
-                  onClick={() => router.push("/login")}
+                  onClick={() =>
+                    isAuthenticated
+                      ? router.push("/homepage/products")
+                      : router.push("/login")
+                  }
                   variant="contained"
                   className="space-x-2 w-fit py-2.5 px-8 rounded-lg capitalize"
                 >
@@ -68,7 +75,7 @@ function Onboarding() {
                 <Button
                   color="primary"
                   variant="contained"
-                  onClick={() => router.push("/homepage")}
+                  onClick={() => router.push("/homepage/products")}
                   className="space-x-2 w-fit py-2.5 px-8 rounded-lg capitalize"
                 >
                   <BuyIcon />

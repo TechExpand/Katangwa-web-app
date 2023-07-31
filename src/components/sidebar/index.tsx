@@ -1,5 +1,8 @@
 import { CategoryIcon } from "@/assets/svg";
+import { getCategories } from "@/reduxcontainer/productSlice/productSlice";
 import React, { FC, ReactElement, useState } from "react";
+import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
 import FilterContents from "../filters";
 
 export interface InputProps {
@@ -12,6 +15,25 @@ const minDistance = 10;
 
 const Sidebar: FC = () => {
   const [sliderValue, setSliderValue] = React.useState<number[]>([20, 37]);
+
+  const dispatch = useDispatch<any>();
+  const data = useSelector((state: any) => state.categoryReducer);
+
+  const { data: categoryData } = useQuery(
+    ["category"],
+    () => {
+      return dispatch(getCategories());
+    },
+    {
+      keepPreviousData: true,
+      onSuccess: async (res) => {
+        console.log(res);
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    }
+  );
 
   const handleChange = (
     event: Event,

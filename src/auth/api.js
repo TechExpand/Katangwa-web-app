@@ -50,12 +50,12 @@ export class Auth {
     };
   }
   static authHeader() {
-    const user = Storage.getItem("user");
-    if (user && user.token) {
+    const token = Storage.getItem("token");
+    if (token) {
       return {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: "Bearer " + user.token,
+        Authorization: "Bearer " + token,
       };
     } else {
       return {};

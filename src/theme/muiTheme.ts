@@ -49,7 +49,6 @@ export default createTheme({
             
               backgroundColor: "#70A300 !important",
             color: '#fff',
-              padding: '10px',
                     fontSize: "1rem",
               '&:hover': {
                 backgroundColor: "#70A300 !important",

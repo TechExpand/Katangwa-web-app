@@ -1,5 +1,6 @@
 import { Button, FormControl, Slider, TextField } from "@mui/material";
 import React, { FC, ReactNode } from "react";
+import { useSelector } from "react-redux";
 import CustomSelect from "../input/CustomSelect";
 
 function valuetext(value: number) {
@@ -17,13 +18,18 @@ const FilterContents: FC<AuthContainerProps> = ({
   sliderValue,
   handleChange,
 }) => {
+  const categories = useSelector((state: any) => state.categoryReducer);
+
   return (
     <>
       <div className="space-y-1 pt-5">
         <p className="text-xs text-secondary">LABEL</p>
         <div className="space-y-4 text-sm">
           <FormControl className="w-full">
-            <CustomSelect placeholder="Select Category" />
+            <CustomSelect
+              placeholder="Select Category"
+              options={!categories.isLoading && categories.data}
+            />
           </FormControl>
 
           <FormControl className="w-full">

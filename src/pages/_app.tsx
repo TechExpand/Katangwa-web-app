@@ -1,8 +1,8 @@
 import '@/styles/globals.css'
 import muiTheme from "@/theme/muiTheme";
-import { ThemeProvider } from "@mui/material";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import { store } from "../reduxcontainer/reduxstore/store";
 import { Provider } from "react-redux";
@@ -35,11 +35,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // );
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={muiTheme}>
-        <Provider store={store}>
-          {getLayout(<Component {...pageProps} />)}
-        </Provider>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={muiTheme}>
+          <Provider store={store}>
+            {getLayout(<Component {...pageProps} />)}
+          </Provider>
+        </ThemeProvider>
+      </StyledEngineProvider>
       <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"} />
     </QueryClientProvider>
   );

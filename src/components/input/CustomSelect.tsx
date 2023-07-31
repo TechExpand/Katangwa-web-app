@@ -31,6 +31,7 @@ export interface InputProps {
 const CustomSelect: FC<InputProps> = ({
   placeholder,
   selected,
+  options,
   handleChange = () => {},
 }) => {
   const [selectVal, setSelectVal] = useState("");
@@ -57,9 +58,15 @@ const CustomSelect: FC<InputProps> = ({
       <MenuItem disabled value="">
         <em>{placeholder}</em>
       </MenuItem>
-      <MenuItem value={"10"}>Ten</MenuItem>
-      <MenuItem value={"20"}>Twenty</MenuItem>
-      <MenuItem value={"30"}>Thirty</MenuItem>
+      {options && options.length > 0 ? (
+        options.map((option: any) => (
+          <MenuItem value={option.id} key={option.id}>
+            {option.name}
+          </MenuItem>
+        ))
+      ) : (
+        <MenuItem value={"10"}>Ten</MenuItem>
+      )}
     </Select>
   );
 };

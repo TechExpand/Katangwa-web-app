@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Storage } from "src/auth/api";
+import { Storage } from "../../auth/api";
 import authService from "../services/authService/authService";
 
 export const login = createAsyncThunk(
@@ -38,7 +38,10 @@ export const signup = createAsyncThunk(
   }
 );
 
-const initialState = Storage.getItem("user");
+const initialState = {
+  isAuthenticated: Storage.getItem("token") ? true : false,
+  user: Storage.getItem("user"),
+};
 
 const authSlice = createSlice({
   name: "authSlice",
@@ -46,17 +49,24 @@ const authSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       Object.assign(state, action.payload);
-      Storage.setItem("user", state);
+      Storage.setItem("user", state.user);
+      Storage.setItem("token", state.token);
     },
     removeUser: (state) => {
-      state.access_token = undefined;
+      state.isAuthenticated = false;
       state.user = undefined;
       Storage.removeItem("user");
     },
   },
   extraReducers: {
+    [login.pending]: (state, action) => {
+      Storage.removeItem(user);
+      Storage.removeItem(token);
+    },
     [login.fulfilled]: (state, action) => {
       state.user = action.payload;
+      Storage.setItem("user", state.user);
+      Storage.setItem("token", state.token);
     },
     [login.rejected]: (state, action) => {
       state.user = null;

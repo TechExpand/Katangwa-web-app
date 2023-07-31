@@ -7,9 +7,17 @@ import ProductDetails from "../productDetails";
 
 export interface SidebarProps {
   displayAbout?: boolean;
+  userData?: any;
+  userId?: number | string;
+  disableLink?: boolean;
 }
 
-const RequestSidebar: FC<SidebarProps> = ({ displayAbout = false }) => {
+const RequestSidebar: FC<SidebarProps> = ({
+  displayAbout = false,
+  userData,
+  disableLink = false,
+  userId,
+}) => {
   const [profileDisplay, setProfileDisplay] = useState(false);
 
   const router = useRouter();
@@ -19,11 +27,14 @@ const RequestSidebar: FC<SidebarProps> = ({ displayAbout = false }) => {
         <div
           className="flex space-x-7 mb-6 cursor-pointer"
           aria-disabled={displayAbout}
-          onClick={() => router.push("/seller/0")}
+          onClick={() => !disableLink && router.push(`/seller/${userId}`)}
         >
           <div className="avatar bg-red rounded-full w-20 h-20"></div>
           <div className="intro space-y-2">
-            <h2 className="text-xl text-[#253B4B]">John Doe</h2>
+            <h2 className="text-xl text-[#253B4B]">
+              {(userData && userData.firstName + " " + userData.lastName) ||
+                "John Doe"}
+            </h2>
             <div className="space-y-1">
               <p className="text-xs">Last Seen 10 Minutes ago</p>
               <p className="text-xs">Joined 2 Weeks ago</p>
