@@ -100,7 +100,10 @@ function Products() {
             {productData &&
               productData?.data.image.images.map(
                 (singleImg: string, index: number) => (
-                  <div className="w-[8rem] h-[4.6875rem] cursor-pointer">
+                  <div
+                    className="w-[8rem] h-[4.6875rem] cursor-pointer"
+                    key={index}
+                  >
                     <img
                       src={singleImg}
                       alt=""
