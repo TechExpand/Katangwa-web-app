@@ -52,22 +52,23 @@ function Login() {
     { email, password }: UserLoginProps // @ts-ignore
   ) => {
     // @ts-ignore
-    await dispatch(login({ email, password })).unwrap();
+    return await dispatch(login({ email, password })).unwrap();
     // await authService.login(email, password);
   };
 
   const signin = useMutation(logInUser, {
-    onSuccess: async ({ payload }) => {
-      const { status, data } = payload;
+    onSuccess: async (data) => {
+      // const { status, data } = payload;
       formik.setSubmitting(false);
+      router.push("/homepage");
 
-      if (status && data) {
-        formik.resetForm();
-        dispatch(setUser({ ...data }));
-        // router.push("/homepage");
-      } else {
-        console.log("Login Failed");
-      }
+      // if (status && data) {
+      //   formik.resetForm();
+      //   dispatch(setUser({ ...data }));
+      //   // router.push("/homepage");
+      // } else {
+      //   console.log("Login Failed");
+      // }
     },
     onError: (err) => {
       console.log("Error", err);
