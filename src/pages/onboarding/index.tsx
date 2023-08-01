@@ -52,7 +52,7 @@ function Onboarding() {
                   color="primary"
                   onClick={() =>
                     isAuthenticated
-                      ? router.push("/homepage/products")
+                      ? router.push("/login")
                       : router.push("/login")
                   }
                   variant="contained"

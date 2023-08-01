@@ -1,6 +1,7 @@
 "use client";
 import { Button, FormControl, FormLabel, TextField } from "@mui/material";
 import { FC, ReactElement } from "react";
+import CustomSelect from "../input/CustomSelect";
 
 export interface InputProps {
   placeholder?: string;
@@ -31,7 +32,7 @@ const RequestItem: FC = () => {
         />
       </FormControl>
 
-      <FormControl className="w-full p-0 space-y-2">
+      <FormControl className="w-full p-0 space-y-2 h-10 rounded-lg items-center text-xs">
         <FormLabel>
           <p className="form-label">Condition</p>
         </FormLabel>
@@ -44,10 +45,8 @@ const RequestItem: FC = () => {
         <FormLabel>
           <p className="form-label">Location</p>
         </FormLabel>
-        <TextField
-          placeholder="Select Location"
-          className="w-full rounded-xl"
-        />
+
+        <CustomSelect placeholder="Select Location" />
       </FormControl>
 
       <FormControl className="w-full p-0 space-y-2">
