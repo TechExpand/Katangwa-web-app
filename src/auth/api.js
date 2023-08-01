@@ -13,7 +13,7 @@ export class Storage {
       data = localStorage.getItem(key);
     }
     if (data == null) {
-      return defaultVal;
+      return null;
     } else if (
       data.charAt(0) === "[" ||
       data.charAt(0) === "{" ||
@@ -107,7 +107,7 @@ const api = {
       })
       .then((res) => res)
       .catch((err) => {
-        throw new Error(err);
+        throw err.response.data.message;
       });
   },
 

@@ -2,6 +2,7 @@ import { BuyIcon, SendIcon } from "@/assets/svg";
 import CustomSearch from "@/components/input/CustomSearch";
 import { getLayout as getPageLayout } from "@/components/layouts/CorePageLayout";
 import { Button } from "@mui/material";
+import { Storage } from "../../auth/api";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -39,8 +40,8 @@ function Onboarding() {
           <p className="text-[#253B4B] text-lg font-medium">
             What do you want to do today?
           </p>
-          <div className="space-y-5 md:space-y-0 w-[70%] md:flex md:space-x-10">
-            <div className="bg-[#b36516] w-full rounded-xl overflow-hidden  relative">
+          <div className="space-y-5 md:space-y-0 w-[70%] md:w-full md:flex md:space-x-10">
+            <div className="bg-[#b36516] rounded-xl overflow-hidden relative">
               <Image
                 src="/images/buy_image.png"
                 alt="app-logo"
@@ -52,7 +53,7 @@ function Onboarding() {
                   color="primary"
                   onClick={() =>
                     isAuthenticated
-                      ? router.push("/login")
+                      ? router.push("/homepage/products")
                       : router.push("/login")
                   }
                   variant="contained"

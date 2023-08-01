@@ -3,46 +3,76 @@ import AuthContainer from "@/components/containers/AuthContainer";
 import CustomInput from "@/components/input/CustomInput";
 import { getLayout as getAuthLayout } from "@/components/layouts/AuthLayout";
 import { login, setUser } from "@/reduxcontainer/authSlice/authSlice";
-import { Button, CircularProgress } from "@mui/material";
+import {
+  Alert,
+  Button,
+  CircularProgress,
+  IconButton,
+  Snackbar,
+} from "@mui/material";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import CloseIcon from "@mui/icons-material/Close";
 import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
+import authService from "@/reduxcontainer/services/authService/authService";
 
 function Login() {
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch<any>();
-
   const user = useSelector((state: any) => state.authReducer.user);
+
+  const action = (
+    <>
+      <Button color="secondary" size="small" onClick={() => {}}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={() => setOpen(false)}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </>
+  );
 
   interface UserLoginProps {
     email: string;
     password: string;
   }
   // @ts-ignore
-  const logInUser: any = (
+  const logInUser: any = async (
     // @ts-ignore
     { email, password }: UserLoginProps // @ts-ignore
-  ) => dispatch(login({ email, password })); // @ts-ignore
+  ) => {
+    // @ts-ignore
+    await dispatch(login({ email, password })).unwrap();
+    // await authService.login(email, password);
+  };
 
   const signin = useMutation(logInUser, {
-    onSuccess: ({ payload }) => {
+    onSuccess: async ({ payload }) => {
       const { status, data } = payload;
       formik.setSubmitting(false);
 
       if (status && data) {
         formik.resetForm();
         dispatch(setUser({ ...data }));
-        router.push("/homepage");
+        // router.push("/homepage");
       } else {
         console.log("Login Failed");
       }
     },
     onError: (err) => {
-      console.log(err);
+      console.log("Error", err);
+      setOpen(true);
+      formik.setSubmitting(false);
     },
   });
 
@@ -58,11 +88,6 @@ function Login() {
       password: Yup.string().label("Password").min(3).required(),
     }),
   });
-  useEffect(() => {
-    if (user) {
-      router.push("/homepage");
-    }
-  }, []);
 
   const handleLogin = () => {
     router.push("/onboarding");
@@ -109,7 +134,11 @@ function Login() {
             <Button
               className="w-full md:h-14 h-12 p-4 capitalize"
               type="submit"
-              disabled={formik.isSubmitting}
+              disabled={
+                formik.isSubmitting ||
+                !!formik.errors.password ||
+                !!formik.errors.email
+              }
               variant="contained"
             >
               <p className="font-semibold text-white">
@@ -123,7 +152,6 @@ function Login() {
             </Button>
           </form>
         </div>
-
         <div className="w-full space-y-6 px-6 md:px-10 mt-8 text-center mx-auto">
           <div className="separator flex space-x-3 px-2 items-center">
             <span className="h-0.5 bg-[#9DA5B2] w-full"></span>
@@ -151,6 +179,16 @@ function Login() {
             </p>
           </div>
         </div>
+        <Snackbar
+          open={open}
+          autoHideDuration={1500}
+          onClose={() => setOpen(false)}
+          action={action}
+        >
+          <Alert severity="error" variant="filled">
+            {signin?.error?.message}
+          </Alert>
+        </Snackbar>
       </AuthContainer>
     </>
   );

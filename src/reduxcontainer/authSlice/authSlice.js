@@ -4,7 +4,7 @@ import authService from "../services/authService/authService";
 
 export const login = createAsyncThunk(
   "auth/login",
-  async ({ email, password }, thunkAPI) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const data = await authService.login(email, password);
       return data;
@@ -13,9 +13,10 @@ export const login = createAsyncThunk(
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
-        error.message ||
         error.toString();
-      return thunkAPI.rejectWithValue(message);
+
+      throw Error(message);
+      // return thunkAPI.rejectWithValue(message);
     }
   }
 );
@@ -39,10 +40,11 @@ export const signup = createAsyncThunk(
 );
 
 const initialState = {
-  isAuthenticated: Storage.getItem("token") ? true : false,
-  user: Storage.getItem("user"),
+  isAuthenticated: !!Storage.getItem("token"),
+  user: Storage.getItem("user") || null,
 };
 
+console.log(!!Storage.getItem("token"));
 const authSlice = createSlice({
   name: "authSlice",
   initialState,
@@ -60,13 +62,15 @@ const authSlice = createSlice({
   },
   extraReducers: {
     [login.pending]: (state, action) => {
-      Storage.removeItem(user);
-      Storage.removeItem(token);
+      Storage.removeItem("user");
+      Storage.removeItem("token");
     },
     [login.fulfilled]: (state, action) => {
       state.user = action.payload;
-      Storage.setItem("user", state.user);
-      Storage.setItem("token", state.token);
+      if (state.user) {
+        Storage.setItem("user", state.user);
+        Storage.setItem("token", state.token);
+      }
     },
     [login.rejected]: (state, action) => {
       state.user = null;

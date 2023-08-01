@@ -5,7 +5,6 @@ const login = async (email, password) => {
     const res = await api.post("/login", { email, password });
     return res.data;
   } catch (err) {
-    console.log(err);
     throw new Error(err);
   }
 };
@@ -16,7 +15,6 @@ const signup = async (fullname, email, password) => {
     const res = await api.post("/register", { fullname, email, password });
     return res.data;
   } catch (err) {
-    console.log(err);
     throw new Error(err);
   }
 };

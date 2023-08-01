@@ -185,20 +185,22 @@ const PageNavbar: FC = () => {
                 )}
               </div>
             </div>
-            {!!isAuthenticated && (
-              <div className="login-contents space-x-4 flex items-center">
-                <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
-                  <NotificationIcon />
-                </div>
+            <>
+              {!!isAuthenticated && (
+                <div className="login-contents space-x-4 flex items-center">
+                  <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
+                    <NotificationIcon />
+                  </div>
 
-                <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
-                  <MessageIcon />
+                  <div className="w-9 h-9 rounded-full border-2 border-[#B1B5C3] flex justify-center items-center">
+                    <MessageIcon />
+                  </div>
+                  <div className="px-4 h-9 flex items-center justify-center border-l-2 border-[#B1B5C3]">
+                    <PersonIcon />
+                  </div>
                 </div>
-                <div className="px-4 h-9 flex items-center justify-center border-l-2 border-[#B1B5C3]">
-                  <PersonIcon />
-                </div>
-              </div>
-            )}
+              )}
+            </>
             <div className="login-btn w-[6rem] md:min-w-[111px]">
               <Button
                 className="w-[6.8rem] h-11 md:h-12 p-4 rounded-lg text-sm md:text-base font-bold capitalize bg-[#70A300] hover:bg-[#70A300] hover:opacity-75"
