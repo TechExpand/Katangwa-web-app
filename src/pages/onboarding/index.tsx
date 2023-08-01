@@ -28,7 +28,7 @@ function Onboarding() {
             width={237}
             height={52}
           />
-          <div className="italic font-semibold text-xs text-black md:-right-28 absolute bottom-0 -right-32">
+          <div className="italic font-semibold text-xs text-black md:-right-28 absolute -bottom-1.5 md:-bottom-0 -right-32">
             Exchange with connections
           </div>
         </div>
@@ -39,8 +39,8 @@ function Onboarding() {
           <p className="text-[#253B4B] text-lg font-medium">
             What do you want to do today?
           </p>
-          <div className="space-y-5 md:space-y-0 md:flex md:space-x-10">
-            <div className="bg-[#b36516] rounded-xl overflow-hidden  relative">
+          <div className="space-y-5 md:space-y-0 w-[70%] md:flex md:space-x-10">
+            <div className="bg-[#b36516] w-full rounded-xl overflow-hidden  relative">
               <Image
                 src="/images/buy_image.png"
                 alt="app-logo"

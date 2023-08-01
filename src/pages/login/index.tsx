@@ -3,7 +3,7 @@ import AuthContainer from "@/components/containers/AuthContainer";
 import CustomInput from "@/components/input/CustomInput";
 import { getLayout as getAuthLayout } from "@/components/layouts/AuthLayout";
 import { login, setUser } from "@/reduxcontainer/authSlice/authSlice";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -114,7 +114,11 @@ function Login() {
             >
               <p className="font-semibold text-white">
                 {" "}
-                {formik.isSubmitting ? "Loading..." : "Login"}
+                {formik.isSubmitting ? (
+                  <CircularProgress color="inherit" />
+                ) : (
+                  "Login"
+                )}
               </p>
             </Button>
           </form>

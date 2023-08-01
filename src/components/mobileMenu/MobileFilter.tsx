@@ -58,12 +58,11 @@ const MobileFilter: FC<InputProps> = ({ isActive = false, menuToggle }) => {
         !showFilter && "translate-x-full"
       } lg:relative lg:translate-x-0 transition duration-300 ease-in-out`}
     >
-      <div
-        onClick={handleToggleFilter}
-        className=" py-7 px-4 flex justify-between w-full"
-      >
+      <div className="py-7 px-4 flex justify-between w-full">
         <p>Filter</p>
-        <CloseIcon className="text-[#1E1E1E[" />
+        <div className="w-fit" onClick={handleToggleFilter}>
+          <CloseIcon className="text-[#1E1E1E[" />
+        </div>
       </div>
       <div className="px-4 space-y-8">
         <FilterContents
