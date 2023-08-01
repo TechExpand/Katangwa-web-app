@@ -186,6 +186,7 @@ function Login() {
           action={action}
         >
           <Alert severity="error" variant="filled">
+            {/* @ts-ignore */}
             {signin?.error?.message}
           </Alert>
         </Snackbar>
