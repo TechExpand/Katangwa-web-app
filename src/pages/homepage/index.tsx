@@ -24,7 +24,7 @@ function Dashboard() {
     <div className="max-w-[90rem] mx-auto flex pb-32">
       <Sidebar />
 
-      <main className=" bg-white w-full md:flex-1 py-3 px-4 md:pr-[4.375rem] md:pl-7">
+      <main className=" bg-white w-full md:flex-1 py-3 px-4 md:pr-[4rem] md:pl-7">
         <div className="mt-8 flex items-center md:px-5 pb-5">
           <div className="hidden md:block">
             <BreadCrumb />
