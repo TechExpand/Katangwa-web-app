@@ -23,9 +23,18 @@ export const login = createAsyncThunk(
 
 export const signup = createAsyncThunk(
   "auth/signup",
-  async ({ fullname, email, password }, thunkAPI) => {
+  async ({ firstName, lastName, dob, phone, email, password }, thunkAPI) => {
     try {
-      const data = await authService.signup(fullname, email, password);
+      // console.log(firstName, lastName, gender);
+      const data = await authService.signup({
+        firstName,
+        lastName,
+        dob,
+
+        phone,
+        email,
+        password,
+      });
       return data;
     } catch (error) {
       const message =
@@ -40,8 +49,9 @@ export const signup = createAsyncThunk(
 );
 
 const initialState = {
-  isAuthenticated: !!Storage.getItem("token"),
+  isAuthenticated: !!Storage.getItem("token") && !!Storage.getItem("user"),
   user: Storage.getItem("user") || null,
+  signupInfo: null,
 };
 
 console.log(!!Storage.getItem("token"));
@@ -50,9 +60,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      Object.assign(state, action.payload);
-      Storage.setItem("user", state.user);
-      Storage.setItem("token", state.token);
+      // Object.assign(state.user, action.payload);
+      // console.log(action.payload);
+      state.signupInfo = action.payload;
     },
     removeUser: (state) => {
       state.isAuthenticated = false;
@@ -62,6 +72,7 @@ const authSlice = createSlice({
   },
   extraReducers: {
     [login.pending]: (state, action) => {
+      state.user = null;
       Storage.removeItem("user");
       Storage.removeItem("token");
     },
@@ -74,6 +85,24 @@ const authSlice = createSlice({
     },
     [login.rejected]: (state, action) => {
       state.user = null;
+    },
+    [signup.pending]: (state, action) => {
+      state.user = null;
+      Storage.removeItem("user");
+      Storage.removeItem("token");
+    },
+    [signup.fulfilled]: (state, action) => {
+      state.user = action.payload;
+      state.userInfo = null;
+      state.isAuthenticated = true;
+      if (state.user) {
+        Storage.setItem("user", state.user);
+        Storage.setItem("token", state.token);
+      }
+    },
+    [signup.rejected]: (state, action) => {
+      state.user = null;
+      state.signupInfo = null;
     },
   },
 });

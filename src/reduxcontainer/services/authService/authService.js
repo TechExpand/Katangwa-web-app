@@ -10,10 +10,17 @@ const login = async (email, password) => {
   }
 };
 
-const signup = async (fullname, email, password) => {
+const signup = async ({ firstName, lastName, phone, dob, email, password }) => {
   // used api helper function that makes the actual call with axios
   try {
-    const res = await api.post("/register", { fullname, email, password });
+    const res = await api.post("/register", {
+      firstName,
+      lastName,
+      phone,
+      dob,
+      email,
+      password,
+    });
     return res.data;
   } catch (err) {
     throw new Error(err);

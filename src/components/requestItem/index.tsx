@@ -32,7 +32,7 @@ const RequestItem: FC = () => {
         />
       </FormControl>
 
-      <FormControl className="w-full p-0 space-y-2 h-10 rounded-lg items-center text-xs">
+      <FormControl className="w-full p-0 space-y-2">
         <FormLabel>
           <p className="form-label">Condition</p>
         </FormLabel>

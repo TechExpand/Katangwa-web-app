@@ -42,6 +42,5 @@ const categorySlice = createSlice({
   },
 });
 
-// export const { setUser, removeUser } = authSlice.actions;
 const categoryReducer = categorySlice.reducer;
 export default categoryReducer;

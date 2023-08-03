@@ -7,7 +7,7 @@ import {
 } from "@/assets/svg";
 import AuthContainer from "@/components/containers/AuthContainer";
 import CustomInput from "@/components/input/CustomInput";
-import { signup } from "@/reduxcontainer/authSlice/authSlice";
+import { setUser, signup } from "@/reduxcontainer/authSlice/authSlice";
 import { getLayout as getAuthLayout } from "@/components/layouts/AuthLayout";
 import { Button } from "@mui/material";
 import Link from "next/link";
@@ -22,43 +22,19 @@ function SignUp() {
   const router = useRouter();
   const dispatch = useDispatch<any>();
 
-  const user = useSelector((state: any) => state.authReducer.user);
-
-  interface UserSignupProps {
-    fullname: string;
-    email: string;
-    password: string;
-  }
-  // @ts-ignore
-  const logInUser: any = (
-    // @ts-ignore
-    { fullname, email, password }: UserSignupProps // @ts-ignore
-  ) => dispatch(signup({ fullname, email, password })); // @ts-ignore
-
-  const signUp = useMutation(logInUser, {
-    onSuccess: ({ payload }) => {
-      const { succeeded, data } = payload;
-      formik.setSubmitting(false);
-
-      if (succeeded && data) {
-        formik.resetForm();
-
-        router.push("/login");
-      } else {
-        console.log("Signup Failed");
-      }
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
   const formik = useFormik({
     initialValues: { fullname: "", email: "", password: "" },
     onSubmit: ({ fullname, email, password }, { setSubmitting }) => {
-      setSubmitting(true);
-      // @ts-ignore
-      signUp.mutate({ fullname, email, password });
+      dispatch(
+        setUser({
+          firstName: fullname.split(" ")[0],
+          lastName: fullname.split(" ")[1],
+          email: email,
+          password: password,
+        })
+      );
+
+      router.push("/signup/options");
     },
     validationSchema: Yup.object({
       fullname: Yup.string().required(),
@@ -66,11 +42,6 @@ function SignUp() {
       password: Yup.string().label("Password").min(3).required(),
     }),
   });
-  useEffect(() => {
-    if (user) {
-      router.push("/login");
-    }
-  }, []);
 
   const handleSignup = () => {
     router.push("/verify-account");
@@ -95,7 +66,7 @@ function SignUp() {
             </p>
             <CustomInput
               icon={<Profile />}
-              placeholder="Full Name"
+              placeholder="First Name Last Name"
               value={formik.values.fullname}
               handleChange={formik.handleChange("fullname")}
               type="text"
